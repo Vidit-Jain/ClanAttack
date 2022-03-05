@@ -3,6 +3,7 @@ from src.screen import *
 from src.config import *
 from src.object import *
 from src.king import *
+from src.townhall import *
 from colorama import Fore
 
 
@@ -10,10 +11,12 @@ class Game:
     def __init__(self):
         self.input = Get()
         self.screen = Screen()
-        self.obj = Object(self, "+", Fore.RED, 10, 3, 5, 5, 100)
         self.king = King(self, 0, 0)
-        self.screen.add(self.obj)
         self.screen.add(self.king)
+        self.townhall = Townhall(
+            self, GAME["window"]["width"] / 2, GAME["window"]["height"] / 2
+        )
+        self.screen.add(self.townhall)
 
     def handle_input(self):
         ch = input_to(self.input)
@@ -26,13 +29,13 @@ class Game:
         if ch == "d":
             self.king.moveright()
         if ch == "c":
-            return 1 
+            return 1
         return 0
 
     def loop(self):
         while 1:
             self.screen.render()
-            if (self.handle_input() == 1):
+            if self.handle_input() == 1:
                 break
 
 

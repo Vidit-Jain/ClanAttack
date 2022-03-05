@@ -37,19 +37,15 @@ class Screen:
                 output += j
             output += "\n"
         sys.stdout.write(output)
-        # for i in self.screen:
-        #     for j in i:
-        #         sys.stdout.write(j)
-        #     sys.stdout.write("\n")
         self.last_render = time.monotonic()
 
     def add(self, obj):
         symbol = obj.color + GAME["background"] + obj.symbol
-        for i in range(obj.y[0], obj.y[1]):
-            for j in range(obj.x[0], obj.x[1]):
+        for i in range(int(obj.y[0]), int(obj.y[1])):
+            for j in range(int(obj.x[0]), int(obj.x[1])):
                 self.screen[i][j] = symbol
 
     def remove(self, obj):
-        for i in range(obj.y[0], obj.y[1]):
-            for j in range(obj.x[0], obj.x[1]):
+        for i in range(int(obj.y[0]), int(obj.y[1])):
+            for j in range(int(obj.x[0]), int(obj.x[1])):
                 self.screen[i][j] = GAME["background"] + GAME["color"] + GAME["symbol"]

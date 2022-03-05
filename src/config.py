@@ -2,7 +2,7 @@ from colorama import Back, Fore, init
 
 init(autoreset=True)
 GAME = {
-    "window": {"height": 40, "width": 80},
+    "window": {"height": 45, "width": 140},
     "background": Back.BLACK,
     "symbol": "~",
     "color": Fore.WHITE,
@@ -35,9 +35,9 @@ BUILDING = {
 
 HUT = {
     "health": 150,
-    "width": 3,
-    "height": 3,
-    "symbol": "*",
+    "width": 2,
+    "height": 2,
+    "symbol": "^",
 }
 
 WALL = {

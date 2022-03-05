@@ -2,13 +2,12 @@ from src.building import *
 from src.config import *
 
 
-class Cannon:
+class Cannon(Building):
     def __init__(self, game, startx, starty, damage):
         super().__init__(
             self,
             game,
             CANNON["symbol"],
-            CANNON["color"],
             startx,
             starty,
             CANNON["height"],
