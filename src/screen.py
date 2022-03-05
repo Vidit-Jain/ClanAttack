@@ -1,6 +1,7 @@
 from src.config import *
 from colorama import Fore
 import time
+import sys
 
 
 class Screen:
@@ -8,7 +9,10 @@ class Screen:
         self.height = GAME["window"]["height"]
         self.width = GAME["window"]["width"]
         self.screen = [
-            [GAME["background"] + GAME["symbol"] for i in range(self.width)]
+            [
+                GAME["background"] + GAME["color"] + GAME["symbol"]
+                for i in range(self.width)
+            ]
             for i in range(self.height)
         ]
         self.last_render = time.monotonic()
@@ -16,18 +20,27 @@ class Screen:
     def set_cursor(self, x=0, y=0):
         print("\033[" + str(x) + ";" + str(y) + "H")
 
+    def erase_screen(self):
+        print("\033[2J")
+
     def should_render(self):
         return time.monotonic() - self.last_render > 1 / GAME["fps"]
 
     def render(self):
+        # self.erase_screen()
         if not self.should_render():
             return
         self.set_cursor()
-
+        output = ""
         for i in self.screen:
             for j in i:
-                print(j, end="")
-            print()
+                output += j
+            output += "\n"
+        sys.stdout.write(output)
+        # for i in self.screen:
+        #     for j in i:
+        #         sys.stdout.write(j)
+        #     sys.stdout.write("\n")
         self.last_render = time.monotonic()
 
     def add(self, obj):
@@ -39,4 +52,4 @@ class Screen:
     def remove(self, obj):
         for i in range(obj.y[0], obj.y[1]):
             for j in range(obj.x[0], obj.x[1]):
-                self.screen[i][j] = GAME["background"] + GAME["symbol"]
+                self.screen[i][j] = GAME["background"] + GAME["color"] + GAME["symbol"]

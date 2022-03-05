@@ -2,10 +2,11 @@ from colorama import Back, Fore, init
 
 init(autoreset=True)
 GAME = {
-    "window": {"height": 30, "width": 50},
+    "window": {"height": 40, "width": 80},
     "background": Back.BLACK,
     "symbol": "~",
-    "fps": 15,
+    "color": Fore.WHITE,
+    "fps": 20,
 }
 
 FIGHTER = {
@@ -51,4 +52,19 @@ TOWNHALL = {
     "width": 3,
     "height": 4,
     "symbol": "$",
+}
+
+SPAWNPOINT = {
+    "health": 9999,
+    "width": 1,
+    "height": 1,
+    "symbol": "X",
+}
+
+CANNON = {
+    "health": 125,
+    "width": 1,
+    "height": 1,
+    "damage": 1,
+    "symbol": "Y",
 }
