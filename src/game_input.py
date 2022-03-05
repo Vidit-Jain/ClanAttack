@@ -4,6 +4,7 @@ import termios
 import tty
 import signal
 
+
 class Get:
     """Class to get input."""
 
@@ -21,6 +22,7 @@ class Get:
 
 class AlarmException(Exception):
     """Handling alarm exception."""
+
     pass
 
 
