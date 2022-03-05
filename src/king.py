@@ -13,3 +13,15 @@ class King(Fighter):
             KING["health"],
             KING["move_speed"],
         )
+
+    def movedown(self):
+        self.move(0, 1)
+
+    def moveup(self):
+        self.move(0, -1)
+
+    def moveleft(self):
+        self.move(-1, 0)
+
+    def moveright(self):
+        self.move(1, 0)

@@ -15,12 +15,25 @@ class Game:
         self.screen.add(self.obj)
         self.screen.add(self.king)
 
+    def handle_input(self):
+        ch = input_to(self.input)
+        if ch == "s":
+            self.king.movedown()
+        if ch == "w":
+            self.king.moveup()
+        if ch == "a":
+            self.king.moveleft()
+        if ch == "d":
+            self.king.moveright()
+        if ch == "c":
+            return 1 
+        return 0
+
     def loop(self):
         while 1:
             self.screen.render()
-            a = input_to(self.input)
-            if a == "s":
-                self.king.movedown()
+            if (self.handle_input() == 1):
+                break
 
 
 game = Game()

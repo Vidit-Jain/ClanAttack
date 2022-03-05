@@ -18,14 +18,14 @@ BARBARIAN = {
     "damage": 25,
     "health": 100,
     "colors": [Fore.RED, Fore.YELLOW, Fore.GREEN],
-    "move_speed": 1,
+    "move_speed": 7,
     "symbol": "!",
 }
 KING = {
     "damage": 50,
     "health": 200,
     "color": Fore.BLUE,
-    "move_speed": 0.5,
+    "move_speed": 4,
     "symbol": "K",
 }
 
