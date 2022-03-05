@@ -5,7 +5,7 @@ class Screen:
     def __init__(self):
         self.height = GAME["window"]["height"] 
         self.width = GAME["window"]["width"] 
-        self.screen = [[GAME["background"] + '~' for i in range(self.width)] for i in range(self.height)]
+        self.screen = [[GAME["background"] + GAME["symbol"] for i in range(self.width)] for i in range(self.height)]
         self.last_render = time.monotonic()
 
     def set_cursor(self, x=0, y=0):
@@ -33,7 +33,7 @@ class Screen:
     def remove(self, obj):
         for i in range(obj.y[0], obj.y[1]):
             for j in range(obj.x[0], obj.x[1]):
-                self.screen[i][j] = GAME["background"] + '~' 
+                self.screen[i][j] = GAME["background"] + GAME["symbol"] 
 
 
     
