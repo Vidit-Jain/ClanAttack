@@ -5,8 +5,8 @@ class King(Fighter):
     def __init__(self, game, startx, starty):
         super().__init__(
             game,
-            KING["color"],
             KING["symbol"],
+            KING["color"],
             startx,
             starty,
             KING["damage"],
