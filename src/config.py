@@ -1,7 +1,11 @@
+from colorama import Back
+import colorama
+colorama.init(autoreset=True)
 GAME = {
     "window": {
-        "height": 40,
-        "width": 120
+        "height": 30,
+        "width": 50 
     },
+    "background": Back.BLACK,
     "fps": 15 
 }
