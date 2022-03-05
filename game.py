@@ -1,6 +1,8 @@
-from input import *
+from src.game_input import *
+from src.screen import Screen
+from src.config import *
+import time
 i = Get()
+screen = Screen()
 while (1):
-    a = input_to(i)
-    if (a != None):
-        print(a)
+    screen.render()
