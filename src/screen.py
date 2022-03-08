@@ -42,6 +42,8 @@ class Screen:
         self.last_render = time.monotonic()
 
     def add(self, obj: Object):
+        if obj is None:
+            return
         symbol = obj.color + GAME["background"] + obj.symbol
         for i in range(int(obj.y[0]), int(obj.y[1])):
             for j in range(int(obj.x[0]), int(obj.x[1])):

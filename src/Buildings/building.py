@@ -31,6 +31,7 @@ class Building(Object):
         self.health -= damage
         self.__update_color()
         if self.health <= 0:
+            self.game.x = 1
             self.destroyed = True
 
 

@@ -66,7 +66,7 @@ class Fighter(Object):
             obj = self.loop_collide(self.game.walls)
         if obj is None:
             obj = self.loop_collide(self.game.cannons)
-        if obj is None:
+        if obj is None and self.game.townhall is not None:
             obj = self.loop_collide([self.game.townhall])
         if obj is not None:
             self.x = [self.x[0] - x, self.x[1] - x]
