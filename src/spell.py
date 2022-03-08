@@ -41,7 +41,7 @@ class Heal(Spell):
 
 
 def use_spell(game, ch: str):
-    if str == "r":
-        self.game.rageSpell.use()
+    if ch == "r":
+        game.rageSpell.use()
     else:
-        self.game.healSpell.use()
+        game.healSpell.use()

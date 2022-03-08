@@ -47,6 +47,7 @@ class Game:
             self.screen.clear()
             self.screen.add_to_screen(self)
             self.rageSpell.check_expired()
+            shoot_cannons(game)
             move_barbarians(game)
             remove_destroyed(game)
             self.screen.render()

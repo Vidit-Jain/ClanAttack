@@ -21,17 +21,12 @@ class Building(Object):
 
     def __update_color(self):
         if self.health / self.max_health >= 0.5:
-            self.color = COLORS["GREEN"]
+            self.color = BUILDING["colors"][2]
         elif self.health / self.max_health >= 0.2:
-            self.color = COLORS["YELLOW"]
+            self.color = BUILDING["colors"][1]
         else:
-            self.color = COLORS["RED"]
+            self.color = BUILDING["colors"][0]
 
     def damaged(self, damage: int):
-        self.health -= damage
         self.__update_color()
-        if self.health <= 0:
-            self.game.x = 1
-            self.destroyed = True
-
-
+        super().damaged(damage)

@@ -27,3 +27,8 @@ def remove_destroyed(game):
 def move_barbarians(game):
     for barbarian in game.barbarians:
         barbarian.move()
+
+
+def shoot_cannons(game):
+    for cannon in game.cannons:
+        cannon.shoot()

@@ -75,3 +75,14 @@ class Barbarian(Fighter):
         if collision_obj is not None and collision_obj != "spawnpoint":
             self.attack(collision_obj)
 
+    def __update_color(self):
+        if self.health / self.max_health >= 0.5:
+            self.color = BARBARIAN["colors"][2]
+        elif self.health / self.max_health >= 0.2:
+            self.color = BARBARIAN["colors"][1]
+        else:
+            self.color = BARBARIAN["colors"][0]
+
+    def damaged(self, damage: int):
+        self.__update_color()
+        super().damaged(damage)

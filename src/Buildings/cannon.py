@@ -1,3 +1,5 @@
+import time
+
 from src.Buildings.building import Building
 from src.config import CANNON, INITPOS
 
@@ -15,6 +17,34 @@ class Cannon(Building):
             CANNON["health"],
         )
         self.damage = CANNON["damage"]
+        self.attack_speed = CANNON["attack_speed"]
+        self.last_attacked = 0
+        self.range = CANNON["range"]
+
+    def attack(self, obj):
+        if obj is None:
+            return
+        if time.monotonic() - self.last_attacked < 1 / self.attack_speed:
+            return
+        self.last_attacked = time.monotonic()
+        obj.damaged(self.damage)
+
+    def __dist(self, obj):
+        if obj is None:
+            return 1e6
+        return abs(self.x[0] - obj.x[0]) + abs(self.y[0] - obj.y[0])
+
+    def shoot(self):
+        best = None
+        for barbarian in self.game.barbarians:
+            if self.__dist(barbarian) < self.__dist(best):
+                best = barbarian
+        if self.game.king is not None and self.__dist(self.game.king) < self.__dist(best):
+            best = self.game.king
+
+        if self.__dist(best) > self.range:
+            return
+        self.attack(best)
 
 
 def add_cannons(game):
