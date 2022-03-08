@@ -27,16 +27,6 @@ class Barbarian(Fighter):
                     )
         return least_distance
 
-    def __closest_point(self, obj):
-        least_distance = 1e6
-        x, y = obj.x[0], obj.y[0]
-        for i in range(int(obj.x[0]), int(obj.x[1])):
-            for j in range(int(obj.y[0]), int(obj.y[1])):
-                if abs(self.x[0] - i) + abs(self.y[0] - i) < least_distance:
-                    x, y = i, j
-                    least_distance = abs(self.x[0] - i) + abs(self.y[0] - i)
-        return x, y
-
     def best_building(self):
         best = None
 
@@ -60,7 +50,7 @@ class Barbarian(Fighter):
         if best is None:
             return
 
-        x, y = self.__closest_point(best)
+        x, y = self.closest_point(best)
         movement_options = []
         if self.x[0] > x:
             movement_options.append([-1, 0])

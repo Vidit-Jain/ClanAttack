@@ -45,7 +45,7 @@ KING = {
     "range": 5,
     "symbol": "K",
     "starting_coords": [0, 0],
-    "control_keys": ["w", "a", "s", "d"],
+    "control_keys": ["w", "a", "s", "d", " "],
 }
 
 BUILDING = {
