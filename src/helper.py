@@ -30,3 +30,20 @@ def move_barbarians(game):
 def shoot_cannons(game):
     for cannon in game.cannons:
         cannon.shoot()
+
+
+def game_over(game):
+    return game.king is None and len(game.barbarians) == 0 and game.barbarian_count == 0
+
+
+def game_win(game):
+    return game.townhall is None and len(game.huts) == 0 and len(game.cannons) == 0
+
+
+def game_ended(game):
+    if game_win(game):
+        game.game_end = 1
+        game.game_result = 1
+    elif game_over(game):
+        game.game_end = 1
+        game.game_result = -1

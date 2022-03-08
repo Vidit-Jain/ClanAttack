@@ -15,7 +15,7 @@ GAME = {
     "symbol": " ",
     "color": Fore.WHITE,
     "fps": 20,
-    "barbarian_count": 10,
+    "barbarian_count": 3,
 }
 INITPOS = {
     "spawnpoints": [[50, 5], [90, 32], [110, 25]],
@@ -93,7 +93,12 @@ CANNON = {
 }
 
 SPELL = {
-    "RAGE": {"duration": 5, "uses": 1},
+    "RAGE": {"duration": 5, "uses": 2},
     "HEAL": {"uses": 2},
     "control_keys": ["h", "r"],
+}
+
+MESSAGES = {
+    "stats": [0, 125],
+    "game_end": [GAME["window"]["width"] // 2, GAME["window"]["height"] // 2],
 }
