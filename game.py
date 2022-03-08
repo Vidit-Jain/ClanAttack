@@ -19,6 +19,7 @@ class Game:
         self.screen = Screen()
         self.rageSpell = Rage(self)
         self.healSpell = Heal(self)
+        self.barbarian_count = GAME["barbarian_count"]
         self.rageActive = 0
         self.x = []
         add_king(self)
@@ -35,7 +36,7 @@ class Game:
         if ch in KING["control_keys"]:
             self.king.move(ch)
         elif ch in SPAWNPOINT["control_keys"]:
-            self.barbarians.append(spawn(game, ch))
+            spawn(game, ch)
         elif ch in SPELL["control_keys"]:
             use_spell(self, ch)
         if ch == "c":

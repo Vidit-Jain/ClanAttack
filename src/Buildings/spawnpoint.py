@@ -18,8 +18,11 @@ class Spawnpoint(Building):
 
 
 def spawn(game, ch: str):
+    if game.barbarian_count <= 0:
+        return
     spawnpoint = game.spawnpoints[ord(ch[0]) - ord("1"[0])]
-    return Barbarian(game, spawnpoint.x[0], spawnpoint.y[0])
+    game.barbarian_count -= 1
+    game.barbarians.append(Barbarian(game, spawnpoint.x[0], spawnpoint.y[0]))
 
 
 def add_spawnpoints(game):
