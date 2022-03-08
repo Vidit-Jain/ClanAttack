@@ -71,6 +71,7 @@ class Screen:
         self.loop_add(game.huts)
         self.loop_add(game.cannons)
         self.loop_add(game.walls)
+        self.loop_add(game.barbarians)
 
         if game.townhall is not None:
             self.add(game.townhall)

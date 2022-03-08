@@ -7,7 +7,7 @@ class Barbarian(Fighter):
         super().__init__(
             game,
             BARBARIAN["symbol"],
-            BARBARIAN["color"],
+            BARBARIAN["colors"][-1],
             startx,
             starty,
             BARBARIAN["damage"],

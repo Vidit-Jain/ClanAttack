@@ -7,6 +7,7 @@ GAME = {
     "symbol": " ",
     "color": Fore.WHITE,
     "fps": 20,
+    "barbarian_count": 10
 }
 INITPOS = {
     "spawnpoints": [[50, 5], [90, 32], [110, 25]],
@@ -68,6 +69,7 @@ SPAWNPOINT = {
     "health": 9999,
     "width": 1,
     "height": 1,
+    "control_keys": ["1", "2", "3"],
     "symbol": "X",
 }
 
@@ -76,6 +78,7 @@ CANNON = {
     "width": 1,
     "height": 1,
     "attack_speed": 1,
+    "range": 9,
     "damage": 33,
     "symbol": "Y",
 }

@@ -29,11 +29,14 @@ class Game:
             self.cannons.append(Cannon(self, INITPOS["cannons"][i][0], INITPOS["cannons"][i][1]))
         self.walls = []
         self.walls.extend(create_wall(self, [5, 10], [10, 10]))
+        self.barbarians = []
 
     def handle_input(self):
         ch = input_to(self.input)
         if ch in KING["control_keys"]:
             self.king.move(ch)
+        elif ch in SPAWNPOINT["control_keys"]:
+            self.barbarians.append(spawn(game, ch))
         if ch == "c":
             return 1
         return 0

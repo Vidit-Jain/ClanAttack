@@ -1,5 +1,6 @@
 from src.Buildings.building import Building
 from src.config import SPAWNPOINT
+from src.Fighters.barbarian import *
 
 
 class Spawnpoint(Building):
@@ -13,3 +14,8 @@ class Spawnpoint(Building):
             SPAWNPOINT["width"],
             SPAWNPOINT["health"],
         )
+
+
+def spawn(game, ch: str):
+    spawnpoint = game.spawnpoints[ord(ch[0]) - ord('1'[0])]
+    return Barbarian(game, spawnpoint.x[0], spawnpoint.y[0])
