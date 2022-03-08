@@ -2,6 +2,7 @@ from src.game_input import *
 from src.screen import *
 from src.Fighters.king import *
 from src.Buildings.townhall import *
+from src.config import *
 
 
 class Game:
@@ -15,14 +16,8 @@ class Game:
 
     def handle_input(self):
         ch = input_to(self.input)
-        if ch == "s":
-            self.king.movedown()
-        if ch == "w":
-            self.king.moveup()
-        if ch == "a":
-            self.king.moveleft()
-        if ch == "d":
-            self.king.moveright()
+        if ch in KING["control_keys"]:
+            self.king.move(ch)
         if ch == "c":
             return 1
         return 0

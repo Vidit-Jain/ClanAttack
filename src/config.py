@@ -27,6 +27,7 @@ KING = {
     "color": Fore.BLUE,
     "move_speed": 4,
     "symbol": "K",
+    "control_keys": ['w', 'a', 's', 'd']
 }
 
 BUILDING = {
