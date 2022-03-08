@@ -14,6 +14,7 @@ class King(Fighter):
             KING["move_speed"],
             KING["attack_speed"]
         )
+        self.range = KING["range"]
 
     def move(self, ch: str):
         if ch == "w":
@@ -24,3 +25,7 @@ class King(Fighter):
             super().move(0, 1)
         else:
             super().move(1, 0)
+
+
+def add_king(game):
+    game.king = King(game)

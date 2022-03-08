@@ -13,3 +13,7 @@ class Townhall(Building):
             TOWNHALL["width"],
             TOWNHALL["health"],
         )
+
+
+def add_townhall(game):
+    game.townhall = Townhall(game)

@@ -34,6 +34,7 @@ KING = {
     "color": Fore.BLUE,
     "move_speed": 4,
     "attack_speed": 0.5,
+    "range": 5,
     "symbol": "K",
     "starting_coords": [0, 0],
     "control_keys": ['w', 'a', 's', 'd']

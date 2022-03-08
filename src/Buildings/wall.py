@@ -15,10 +15,15 @@ class Wall(Building):
         )
 
 
-def create_wall(game, start_wall: list[int], end_wall: list[int]):
+def generate_wall(game, start_wall: list[int], end_wall: list[int]):
     walls = []
     for i in range(start_wall[0], end_wall[0] + 1):
         for j in range(start_wall[1], end_wall[1] + 1):
             walls.append(Wall(game, i, j))
 
     return walls
+
+
+def add_walls(game):
+    game.walls = []
+    game.walls.extend(generate_wall(game, [5, 10], [10, 10]))

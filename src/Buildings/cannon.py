@@ -1,5 +1,5 @@
 from src.Buildings.building import Building
-from src.config import CANNON
+from src.config import CANNON, INITPOS
 
 
 class Cannon(Building):
@@ -14,3 +14,9 @@ class Cannon(Building):
             CANNON["health"],
         )
         self.damage = CANNON["damage"]
+
+
+def add_cannons(game):
+    game.cannons = []
+    for i in range(0, len(INITPOS["cannons"])):
+        game.cannons.append(Cannon(game, INITPOS["cannons"][i][0], INITPOS["cannons"][i][1]))

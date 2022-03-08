@@ -14,21 +14,13 @@ class Game:
         self.input = Get()
         self.screen = Screen()
 
-        self.king = King(self)
+        add_king(self)
+        add_townhall(self)
 
-        self.townhall = Townhall(self)
-
-        self.spawnpoints = []
-        for i in range(0, len(INITPOS["spawnpoints"])):
-            self.spawnpoints.append(Spawnpoint(self, INITPOS["spawnpoints"][i][0], INITPOS["spawnpoints"][i][1]))
-        self.huts = []
-        for i in range(0, len(INITPOS["huts"])):
-            self.huts.append(Hut(self, INITPOS["huts"][i][0], INITPOS["huts"][i][1]))
-        self.cannons = []
-        for i in range(0, len(INITPOS["cannons"])):
-            self.cannons.append(Cannon(self, INITPOS["cannons"][i][0], INITPOS["cannons"][i][1]))
-        self.walls = []
-        self.walls.extend(create_wall(self, [5, 10], [10, 10]))
+        add_spawnpoints(self)
+        add_huts(self)
+        add_walls(self)
+        add_cannons(self)
         self.barbarians = []
 
     def handle_input(self):
