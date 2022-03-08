@@ -1,5 +1,5 @@
-from src.config import *
-from colorama import Fore
+from src.config import GAME
+from src.object import Object
 import time
 import sys
 
@@ -10,6 +10,7 @@ def set_cursor(x=0, y=0):
 
 def erase_screen():
     print("\033[2J")
+
 
 class Screen:
     def __init__(self):
@@ -40,13 +41,13 @@ class Screen:
         sys.stdout.write(output)
         self.last_render = time.monotonic()
 
-    def add(self, obj):
+    def add(self, obj: Object):
         symbol = obj.color + GAME["background"] + obj.symbol
         for i in range(int(obj.y[0]), int(obj.y[1])):
             for j in range(int(obj.x[0]), int(obj.x[1])):
                 self.screen[i][j] = symbol
 
-    def remove(self, obj):
+    def remove(self, obj: Object):
         for i in range(int(obj.y[0]), int(obj.y[1])):
             for j in range(int(obj.x[0]), int(obj.x[1])):
                 self.screen[i][j] = GAME["background"] + GAME["color"] + GAME["symbol"]
@@ -60,7 +61,7 @@ class Screen:
             for i in range(self.height)
         ]
 
-    def loop_add(self, obj):
+    def loop_add(self, obj: list[Object]):
         if obj is not None:
             for i in range(0, len(obj)):
                 self.add(obj[i])

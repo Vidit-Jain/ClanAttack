@@ -15,7 +15,7 @@ class King(Fighter):
             KING["attack_speed"]
         )
 
-    def move(self, ch):
+    def move(self, ch: str):
         if ch == "w":
             super().move(0, -1)
         elif ch == "a":

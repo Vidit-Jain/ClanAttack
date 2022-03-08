@@ -1,5 +1,3 @@
-from tracemalloc import start
-
 
 class Object:
     def __init__(self, game, symbol, color, startx, starty, height, width, health):

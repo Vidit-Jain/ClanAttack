@@ -1,5 +1,5 @@
-from src.Buildings.building import *
-from src.config import *
+from src.Buildings.building import Building
+from src.config import TOWNHALL
 
 
 class Townhall(Building):

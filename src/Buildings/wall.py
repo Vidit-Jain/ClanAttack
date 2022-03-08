@@ -1,9 +1,9 @@
-from src.Buildings.building import *
-from src.config import *
+from src.Buildings.building import Building
+from src.config import WALL
 
 
 class Wall(Building):
-    def __init__(self, game, startx, starty):
+    def __init__(self, game, startx: int, starty: int):
         super().__init__(
             game,
             WALL["symbol"],
@@ -15,7 +15,7 @@ class Wall(Building):
         )
 
 
-def create_wall(game, start_wall, end_wall):
+def create_wall(game, start_wall: list[int], end_wall: list[int]):
     walls = []
     for i in range(start_wall[0], end_wall[0] + 1):
         for j in range(start_wall[1], end_wall[1] + 1):
