@@ -31,9 +31,10 @@ class King(Fighter):
         self.attack_loop(self.game.walls, buildings)
         self.attack_loop(self.game.cannons, buildings)
 
-        x, y = self.closest_point(self.game.townhall)
-        if abs(x - self.x[0]) + abs(y - self.y[0]) <= self.range:
-            buildings.add(self.game.townhall)
+        if self.game.townhall is not None:
+            x, y = self.closest_point(self.game.townhall)
+            if abs(x - self.x[0]) + abs(y - self.y[0]) <= self.range:
+                buildings.add(self.game.townhall)
         for obj in buildings:
             obj.damaged(self.damage * (self.game.rageActive + 1))
 

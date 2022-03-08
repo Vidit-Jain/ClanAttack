@@ -18,9 +18,9 @@ GAME = {
     "barbarian_count": 3,
 }
 INITPOS = {
-    "spawnpoints": [[50, 5], [90, 32], [110, 25]],
-    "huts": [[60, 13], [40, 3], [85, 33], [102, 22], [80, 14]],
-    "cannons": [[60, 20], [90, 30]],
+    "spawnpoints": [[37, 15], [90, 42], [125, 25]],
+    "huts": [[60, 13], [70, 15], [80, 28], [90, 22], [80, 14]],
+    "cannons": [[60, 20], [90, 30], [80, 17], [60, 25]],
 }
 
 FIGHTER = {
@@ -68,8 +68,8 @@ WALL = {
 
 TOWNHALL = {
     "health": 300,
-    "width": 3,
-    "height": 4,
+    "width": 4,
+    "height": 3,
     "symbol": "$",
     "starting_coords": [GAME["window"]["width"] / 2, GAME["window"]["height"] / 2],
 }

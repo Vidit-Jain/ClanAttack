@@ -38,7 +38,9 @@ class Barbarian(Fighter):
             if self.__min_dist(cannon) < self.__min_dist(best):
                 best = cannon
 
-        if self.__min_dist(self.game.townhall) < self.__min_dist(best):
+        if self.game.townhall is not None and self.__min_dist(
+            self.game.townhall
+        ) < self.__min_dist(best):
             best = self.game.townhall
 
         return best
