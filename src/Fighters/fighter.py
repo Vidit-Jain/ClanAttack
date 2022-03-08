@@ -20,16 +20,16 @@ class Fighter(Object):
         self.last_moved = 0
         self.attack_speed = attack_speed
 
-    def bound_movement(self, x: list, y: list):
+    def bound_movement(self, x: int, y: int):
         if self.x[0] + x < 0:
-            x[0] = -self.x[0]
+            x = -self.x[0]
         if self.x[1] + x > GAME["window"]["width"]:
-            x[1] = GAME["window"]["width"] - self.x[1]
+            x = GAME["window"]["width"] - self.x[1]
 
         if self.y[0] + y < 0:
-            y[0] = -self.y[0]
+            y = -self.y[0]
         if self.y[1] + y > GAME["window"]["height"]:
-            y[1] = GAME["window"]["height"] - self.y[1]
+            y = GAME["window"]["height"] - self.y[1]
         return x, y
 
     def move(self, x: int, y: int):
