@@ -4,7 +4,7 @@ import time
 
 
 class Fighter(Object):
-    def __init__(self, game, symbol, color, startx, starty, damage, health, move_speed):
+    def __init__(self, game, symbol, color, startx, starty, damage, health, move_speed, attack_speed):
         super().__init__(
             game,
             symbol,
@@ -18,6 +18,7 @@ class Fighter(Object):
         self.damage = damage
         self.move_speed = move_speed
         self.last_moved = 0
+        self.attack_speed = attack_speed
 
     def boundmovement(self, x, y):
         if self.x[0] + x < 0:
@@ -39,5 +40,4 @@ class Fighter(Object):
         self.game.screen.remove(self)
         self.x = [self.x[0] + x, self.x[1] + x]
         self.y = [self.y[0] + y, self.y[1] + y]
-        self.game.screen.add(self)
         self.last_moved = time.monotonic()

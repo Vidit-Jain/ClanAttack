@@ -12,4 +12,5 @@ class Barbarian(Fighter):
             BARBARIAN["damage"],
             BARBARIAN["health"],
             BARBARIAN["move_speed"],
+            BARBARIAN["attack_speed"]
         )

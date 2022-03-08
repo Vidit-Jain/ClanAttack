@@ -7,8 +7,8 @@ class Townhall(Building):
         super().__init__(
             game,
             TOWNHALL["symbol"],
-            TOWNHALL["startx"],
-            TOWNHALL["starty"],
+            TOWNHALL["starting_coords"][0],
+            TOWNHALL["starting_coords"][1],
             TOWNHALL["height"],
             TOWNHALL["width"],
             TOWNHALL["health"],

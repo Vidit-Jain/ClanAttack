@@ -13,3 +13,12 @@ class Wall(Building):
             WALL["width"],
             WALL["health"],
         )
+
+
+def create_wall(game, start_wall, end_wall):
+    walls = []
+    for i in range(start_wall[0], end_wall[0] + 1):
+        for j in range(start_wall[1], end_wall[1] + 1):
+            walls.append(Wall(game, i, j))
+
+    return walls

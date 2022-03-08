@@ -3,7 +3,7 @@ from src.config import *
 
 
 class Cannon(Building):
-    def __init__(self, game, startx, starty, damage):
+    def __init__(self, game, startx, starty):
         super().__init__(
             game,
             CANNON["symbol"],
@@ -13,4 +13,4 @@ class Cannon(Building):
             CANNON["width"],
             CANNON["health"],
         )
-        self.damage = damage
+        self.damage = CANNON["damage"]

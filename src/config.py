@@ -4,9 +4,14 @@ init(autoreset=True)
 GAME = {
     "window": {"height": 45, "width": 140},
     "background": Back.BLACK,
-    "symbol": "~",
+    "symbol": " ",
     "color": Fore.WHITE,
     "fps": 20,
+}
+INITPOS = {
+    "spawnpoints": [[50, 5], [90, 32], [110, 25]],
+    "huts": [[60, 13], [40, 3], [85, 33], [102, 22], [80, 14]],
+    "cannons": [[60, 20], [90, 30]]
 }
 
 FIGHTER = {
@@ -19,6 +24,7 @@ BARBARIAN = {
     "health": 100,
     "colors": [Fore.RED, Fore.YELLOW, Fore.GREEN],
     "move_speed": 7,
+    "attack_speed": 1,
     "symbol": "!",
 }
 KING = {
@@ -26,7 +32,9 @@ KING = {
     "health": 200,
     "color": Fore.BLUE,
     "move_speed": 4,
+    "attack_speed": 0.5,
     "symbol": "K",
+    "starting_coords": [0, 0],
     "control_keys": ['w', 'a', 's', 'd']
 }
 
@@ -53,8 +61,7 @@ TOWNHALL = {
     "width": 3,
     "height": 4,
     "symbol": "$",
-    "startx": GAME["window"]["width"] / 2,
-    "starty": GAME["window"]["height"] / 2
+    "starting_coords": [GAME["window"]["width"] / 2, GAME["window"]["height"] / 2]
 }
 
 SPAWNPOINT = {
@@ -68,6 +75,7 @@ CANNON = {
     "health": 125,
     "width": 1,
     "height": 1,
-    "damage": 1,
+    "attack_speed": 1,
+    "damage": 33,
     "symbol": "Y",
 }
