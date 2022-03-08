@@ -6,6 +6,7 @@ class Hut(Building):
     def __init__(self, game, startx: int, starty: int):
         super().__init__(
             game,
+            "hut",
             HUT["symbol"],
             startx,
             starty,

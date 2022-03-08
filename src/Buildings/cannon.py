@@ -6,6 +6,7 @@ class Cannon(Building):
     def __init__(self, game, startx: int, starty: int):
         super().__init__(
             game,
+            "cannon",
             CANNON["symbol"],
             startx,
             starty,

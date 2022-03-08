@@ -29,15 +29,17 @@ class Fighter(Object):
         self.damage = damage
         self.move_speed = move_speed
         self.last_moved = 0
+        self.last_attacked = 0
         self.attack_speed = attack_speed
 
     def loop_collide(self, obj_list: list[Object]):
-        flag = False
         if obj_list is not None:
-            for i in range(0, len(obj_list)):
-                flag = flag or self.collide(obj_list[i])
-        return flag
+            for obj in obj_list:
+                if self.collide(obj):
+                    return obj
+        return None
 
+    # Limits movement in case given movement would result in falling off screen
     def bound_movement(self, x: int, y: int):
         if self.x[0] + x < 0:
             x = -self.x[0]
@@ -57,13 +59,27 @@ class Fighter(Object):
         x, y = self.bound_movement(x, y)
         self.x = [self.x[0] + x, self.x[1] + x]
         self.y = [self.y[0] + y, self.y[1] + y]
-        flag = False
-        flag = flag or self.loop_collide(self.game.huts)
-        flag = flag or self.loop_collide(self.game.walls)
-        flag = flag or self.loop_collide(self.game.cannons)
-        flag = flag or self.loop_collide(self.game.spawnpoints)
-        flag = flag or self.collide(self.game.townhall)
-        if flag:
+
+        # Return object you collide with and reverts the movement, else None
+        obj = self.loop_collide(self.game.huts)
+        if obj is None:
+            obj = self.loop_collide(self.game.walls)
+        if obj is None:
+            obj = self.loop_collide(self.game.cannons)
+        if obj is None:
+            obj = self.loop_collide([self.game.townhall])
+        if obj is not None:
             self.x = [self.x[0] - x, self.x[1] - x]
             self.y = [self.y[0] - y, self.y[1] - y]
-        self.last_moved = time.monotonic()
+        else:
+            self.last_moved = time.monotonic()
+
+        return obj
+
+    def attack(self, obj):
+        if time.monotonic() - self.last_attacked < 1 / self.attack_speed:
+            return
+        self.last_attacked = time.monotonic()
+        obj.damaged(self.damage)
+
+

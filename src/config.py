@@ -1,6 +1,14 @@
 from colorama import Back, Fore, init
 
 init(autoreset=True)
+COLORS = {
+    "GREEN": Fore.GREEN,
+    "RED": Fore.RED,
+    "MAGENTA": Fore.MAGENTA,
+    "YELLOW": Fore.YELLOW,
+    "BLACK": Fore.BLACK,
+    "BLUE": Fore.BLUE
+}
 GAME = {
     "window": {"height": 45, "width": 140},
     "background": Back.BLACK,

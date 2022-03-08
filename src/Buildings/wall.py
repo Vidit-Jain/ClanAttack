@@ -6,6 +6,7 @@ class Wall(Building):
     def __init__(self, game, startx: int, starty: int):
         super().__init__(
             game,
+            "wall",
             WALL["symbol"],
             startx,
             starty,
@@ -27,3 +28,4 @@ def generate_wall(game, start_wall: list[int], end_wall: list[int]):
 def add_walls(game):
     game.walls = []
     game.walls.extend(generate_wall(game, [5, 10], [10, 10]))
+    game.walls.extend(generate_wall(game, [43, 1], [43, 10]))
