@@ -20,5 +20,4 @@ class Object:
     def damaged(self, damage: int):
         self.health -= damage
         if self.health <= 0:
-            self.game.x = 1
             self.destroyed = True

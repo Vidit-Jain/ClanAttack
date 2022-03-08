@@ -71,6 +71,8 @@ class Barbarian(Fighter):
         if self.y[0] < y:
             movement_options.append([0, 1])
         movement_choice = random.choice(movement_options)
+
+        # collision_obj stores the object you collided with
         collision_obj = super().move(movement_choice[0], movement_choice[1])
         if collision_obj is not None and collision_obj != "spawnpoint":
             self.attack(collision_obj)

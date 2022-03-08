@@ -19,8 +19,8 @@ class Game:
         self.screen = Screen()
         self.rageSpell = Rage(self)
         self.healSpell = Heal(self)
-        self.rageActive = False
-
+        self.rageActive = 0
+        self.x = []
         add_king(self)
         add_townhall(self)
 

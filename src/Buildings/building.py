@@ -28,5 +28,5 @@ class Building(Object):
             self.color = BUILDING["colors"][0]
 
     def damaged(self, damage: int):
-        self.__update_color()
         super().damaged(damage)
+        self.__update_color()

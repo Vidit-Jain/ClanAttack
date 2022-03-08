@@ -10,7 +10,6 @@ def remove_destroyed(game):
 
     for hut in game.huts:
         if hut.destroyed:
-            game.x = 1
             game.huts.remove(hut)
 
     for cannon in game.cannons:

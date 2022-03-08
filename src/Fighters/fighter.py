@@ -53,7 +53,7 @@ class Fighter(Object):
         return x, y
 
     def move(self, x: int, y: int):
-        if time.monotonic() - self.last_moved < 1 / self.move_speed:
+        if time.monotonic() - self.last_moved < 1 / (self.move_speed * (self.game.rageActive + 1)):
             return
 
         x, y = self.bound_movement(x, y)
@@ -77,7 +77,7 @@ class Fighter(Object):
         return obj
 
     def attack(self, obj):
-        if time.monotonic() - self.last_attacked < 1 / (self.attack_speed * (self.game.rageActive + 1)):
+        if time.monotonic() - self.last_attacked < 1 / self.attack_speed:
             return
         self.last_attacked = time.monotonic()
         obj.damaged(self.damage * (self.game.rageActive + 1))

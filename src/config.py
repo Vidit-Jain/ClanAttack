@@ -29,7 +29,7 @@ FIGHTER = {
 }
 
 BARBARIAN = {
-    "damage": 25,
+    "damage": 24,
     "health": 100,
     "colors": [Fore.RED, Fore.YELLOW, Fore.GREEN],
     "move_speed": 7,
@@ -86,9 +86,9 @@ CANNON = {
     "health": 125,
     "width": 1,
     "height": 1,
-    "attack_speed": 1,
+    "attack_speed": 2,
     "range": 9,
-    "damage": 33,
+    "damage": 15,
     "symbol": "Y",
 }
 
