@@ -44,7 +44,6 @@ class Fighter(Object):
             return
 
         x, y = self.bound_movement(x, y)
-        self.game.screen.remove(self)
         self.x = [self.x[0] + x, self.x[1] + x]
         self.y = [self.y[0] + y, self.y[1] + y]
         flag = False

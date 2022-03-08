@@ -33,10 +33,15 @@ class Game:
             return 1
         return 0
 
+    def move_barbarians(self):
+        for b in self.barbarians:
+            b.move()
+
     def loop(self):
         while 1:
             self.screen.clear()
             self.screen.add_to_screen(self)
+            self.move_barbarians()
             self.screen.render()
             if self.handle_input() == 1:
                 break
