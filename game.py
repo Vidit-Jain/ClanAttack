@@ -7,6 +7,7 @@ from src.Buildings.hut import *
 from src.Buildings.cannon import *
 from src.Buildings.wall import *
 from src.config import *
+from src.helper import *
 
 
 class Game:
@@ -37,40 +38,13 @@ class Game:
             return 1
         return 0
 
-    def remove_destroyed(self):
-        for barbarian in self.barbarians:
-            if barbarian.destroyed:
-                self.barbarians.remove(barbarian)
-
-        for wall in self.walls:
-            if wall.destroyed:
-                self.walls.remove(wall)
-
-        for hut in self.huts:
-            if hut.destroyed:
-                self.x = 1
-                self.huts.remove(hut)
-
-        for cannon in self.cannons:
-            if cannon.destroyed:
-                self.cannons.remove(cannon)
-
-        if self.king is not None and self.king.destroyed:
-            self.king = None
-
-        if self.townhall is not None and self.townhall.destroyed:
-            self.townhall = None
-
-    def move_barbarians(self):
-        for barbarian in self.barbarians:
-            barbarian.move()
 
     def loop(self):
         while 1:
             self.screen.clear()
             self.screen.add_to_screen(self)
-            self.move_barbarians()
-            self.remove_destroyed()
+            move_barbarians(game)
+            remove_destroyed(game)
             self.screen.render()
             if self.handle_input() == 1:
                 break
