@@ -31,8 +31,6 @@ def generate_wall(game, start_wall: list[int], end_wall: list[int]):
 
 def add_walls(game):
     game.walls = []
-    game.walls.extend(generate_wall(game, [5, 10], [10, 10]))
-    game.walls.extend(generate_wall(game, [43, 1], [43, 10]))
     game.walls.extend(generate_wall(game, [56, 11], [56, 27]))
     game.walls.extend(generate_wall(game, [57, 27], [78, 27]))
 

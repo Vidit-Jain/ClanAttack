@@ -42,7 +42,7 @@ class Heal(Spell):
                 barbarian.health = min(
                     int(barbarian.health * 1.5), barbarian.max_health
                 )
-            self.game.king.health = max(
+            self.game.king.health = min(
                 self.game.king.max_health, int(self.game.king.health * 1.5)
             )
 
