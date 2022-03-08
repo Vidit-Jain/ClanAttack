@@ -1,10 +1,7 @@
 from src.game_input import *
 from src.screen import *
-from src.config import *
-from src.object import *
-from src.king import *
-from src.townhall import *
-from colorama import Fore
+from src.Fighters.king import *
+from src.Buildings.townhall import *
 
 
 class Game:
@@ -13,9 +10,7 @@ class Game:
         self.screen = Screen()
         self.king = King(self, 0, 0)
         self.screen.add(self.king)
-        self.townhall = Townhall(
-            self, GAME["window"]["width"] / 2, GAME["window"]["height"] / 2
-        )
+        self.townhall = Townhall(self)
         self.screen.add(self.townhall)
 
     def handle_input(self):

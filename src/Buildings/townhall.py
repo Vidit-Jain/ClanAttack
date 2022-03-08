@@ -1,14 +1,14 @@
-from src.building import *
+from src.Buildings.building import *
 from src.config import *
 
 
 class Townhall(Building):
-    def __init__(self, game, startx, starty):
+    def __init__(self, game):
         super().__init__(
             game,
             TOWNHALL["symbol"],
-            startx,
-            starty,
+            TOWNHALL["startx"],
+            TOWNHALL["starty"],
             TOWNHALL["height"],
             TOWNHALL["width"],
             TOWNHALL["health"],

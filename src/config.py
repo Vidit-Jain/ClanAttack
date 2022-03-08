@@ -52,6 +52,8 @@ TOWNHALL = {
     "width": 3,
     "height": 4,
     "symbol": "$",
+    "startx": GAME["window"]["width"] / 2,
+    "starty": GAME["window"]["height"] / 2
 }
 
 SPAWNPOINT = {

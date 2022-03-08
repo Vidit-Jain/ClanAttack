@@ -1,4 +1,4 @@
-from src.fighter import *
+from src.Fighters.fighter import *
 
 
 class King(Fighter):
