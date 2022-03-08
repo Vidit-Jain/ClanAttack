@@ -17,11 +17,13 @@ class Spawnpoint(Building):
 
 
 def spawn(game, ch: str):
-    spawnpoint = game.spawnpoints[ord(ch[0]) - ord('1'[0])]
+    spawnpoint = game.spawnpoints[ord(ch[0]) - ord("1"[0])]
     return Barbarian(game, spawnpoint.x[0], spawnpoint.y[0])
 
 
 def add_spawnpoints(game):
     game.spawnpoints = []
     for i in range(0, len(INITPOS["spawnpoints"])):
-        game.spawnpoints.append(Spawnpoint(game, INITPOS["spawnpoints"][i][0], INITPOS["spawnpoints"][i][1]))
+        game.spawnpoints.append(
+            Spawnpoint(game, INITPOS["spawnpoints"][i][0], INITPOS["spawnpoints"][i][1])
+        )

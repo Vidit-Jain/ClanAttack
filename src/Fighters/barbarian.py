@@ -13,7 +13,7 @@ class Barbarian(Fighter):
             BARBARIAN["damage"],
             BARBARIAN["health"],
             BARBARIAN["move_speed"],
-            BARBARIAN["attack_speed"]
+            BARBARIAN["attack_speed"],
         )
 
     def __min_dist(self, obj):
@@ -21,7 +21,9 @@ class Barbarian(Fighter):
         if obj is not None:
             for i in range(obj.x[0], obj.x[1]):
                 for j in range(obj.y[0], obj.y[1]):
-                    least_distance = min(least_distance, abs(self.x[0] - i) + abs(self.y[0] - j))
+                    least_distance = min(
+                        least_distance, abs(self.x[0] - i) + abs(self.y[0] - j)
+                    )
         return least_distance
 
     def __closest_point(self, obj):

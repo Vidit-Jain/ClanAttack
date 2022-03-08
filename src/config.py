@@ -7,12 +7,12 @@ GAME = {
     "symbol": " ",
     "color": Fore.WHITE,
     "fps": 20,
-    "barbarian_count": 10
+    "barbarian_count": 10,
 }
 INITPOS = {
     "spawnpoints": [[50, 5], [90, 32], [110, 25]],
     "huts": [[60, 13], [40, 3], [85, 33], [102, 22], [80, 14]],
-    "cannons": [[60, 20], [90, 30]]
+    "cannons": [[60, 20], [90, 30]],
 }
 
 FIGHTER = {
@@ -37,7 +37,7 @@ KING = {
     "range": 5,
     "symbol": "K",
     "starting_coords": [0, 0],
-    "control_keys": ['w', 'a', 's', 'd']
+    "control_keys": ["w", "a", "s", "d"],
 }
 
 BUILDING = {
@@ -63,7 +63,7 @@ TOWNHALL = {
     "width": 3,
     "height": 4,
     "symbol": "$",
-    "starting_coords": [GAME["window"]["width"] / 2, GAME["window"]["height"] / 2]
+    "starting_coords": [GAME["window"]["width"] / 2, GAME["window"]["height"] / 2],
 }
 
 SPAWNPOINT = {

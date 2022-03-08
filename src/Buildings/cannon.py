@@ -19,4 +19,6 @@ class Cannon(Building):
 def add_cannons(game):
     game.cannons = []
     for i in range(0, len(INITPOS["cannons"])):
-        game.cannons.append(Cannon(game, INITPOS["cannons"][i][0], INITPOS["cannons"][i][1]))
+        game.cannons.append(
+            Cannon(game, INITPOS["cannons"][i][0], INITPOS["cannons"][i][1])
+        )

@@ -12,7 +12,7 @@ class King(Fighter):
             KING["damage"],
             KING["health"],
             KING["move_speed"],
-            KING["attack_speed"]
+            KING["attack_speed"],
         )
         self.range = KING["range"]
 

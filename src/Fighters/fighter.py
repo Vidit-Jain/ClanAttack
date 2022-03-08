@@ -4,7 +4,18 @@ import time
 
 
 class Fighter(Object):
-    def __init__(self, game, symbol: str, color: str, startx: int, starty: int, damage: int, health: int, move_speed: int, attack_speed: int):
+    def __init__(
+        self,
+        game,
+        symbol: str,
+        color: str,
+        startx: int,
+        starty: int,
+        damage: int,
+        health: int,
+        move_speed: int,
+        attack_speed: int,
+    ):
         super().__init__(
             game,
             symbol,
