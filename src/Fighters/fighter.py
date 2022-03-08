@@ -53,7 +53,9 @@ class Fighter(Object):
         return x, y
 
     def move(self, x: int, y: int):
-        if time.monotonic() - self.last_moved < 1 / (self.move_speed * (self.game.rageActive + 1)):
+        if time.monotonic() - self.last_moved < 1 / (
+            self.move_speed * (self.game.rageActive + 1)
+        ):
             return
 
         x, y = self.bound_movement(x, y)

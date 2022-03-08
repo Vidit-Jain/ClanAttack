@@ -7,7 +7,7 @@ COLORS = {
     "MAGENTA": Fore.MAGENTA,
     "YELLOW": Fore.YELLOW,
     "BLACK": Fore.BLACK,
-    "BLUE": Fore.BLUE
+    "BLUE": Fore.BLUE,
 }
 GAME = {
     "window": {"height": 45, "width": 140},
@@ -93,12 +93,7 @@ CANNON = {
 }
 
 SPELL = {
-    "RAGE": {
-        "duration": 5,
-        "uses": 1
-    },
-    "HEAL": {
-        "uses": 2
-    },
-    "control_keys": ["h", "r"]
+    "RAGE": {"duration": 5, "uses": 1},
+    "HEAL": {"uses": 2},
+    "control_keys": ["h", "r"],
 }

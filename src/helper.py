@@ -1,4 +1,3 @@
-
 def remove_destroyed(game):
     for barbarian in game.barbarians:
         if barbarian.destroyed:

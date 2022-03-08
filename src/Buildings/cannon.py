@@ -39,7 +39,9 @@ class Cannon(Building):
         for barbarian in self.game.barbarians:
             if self.__dist(barbarian) < self.__dist(best):
                 best = barbarian
-        if self.game.king is not None and self.__dist(self.game.king) < self.__dist(best):
+        if self.game.king is not None and self.__dist(self.game.king) < self.__dist(
+            best
+        ):
             best = self.game.king
 
         if self.__dist(best) > self.range:
