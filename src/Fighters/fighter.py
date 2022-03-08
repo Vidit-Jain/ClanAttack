@@ -20,6 +20,13 @@ class Fighter(Object):
         self.last_moved = 0
         self.attack_speed = attack_speed
 
+    def loop_collide(self, obj_list: list[Object]):
+        flag = False
+        if obj_list is not None:
+            for i in range(0, len(obj_list)):
+                flag = flag or self.collide(obj_list[i])
+        return flag
+
     def bound_movement(self, x: int, y: int):
         if self.x[0] + x < 0:
             x = -self.x[0]
@@ -40,4 +47,13 @@ class Fighter(Object):
         self.game.screen.remove(self)
         self.x = [self.x[0] + x, self.x[1] + x]
         self.y = [self.y[0] + y, self.y[1] + y]
+        flag = False
+        flag = flag or self.loop_collide(self.game.huts)
+        flag = flag or self.loop_collide(self.game.walls)
+        flag = flag or self.loop_collide(self.game.cannons)
+        flag = flag or self.loop_collide(self.game.spawnpoints)
+        flag = flag or self.collide(self.game.townhall)
+        if flag:
+            self.x = [self.x[0] - x, self.x[1] - x]
+            self.y = [self.y[0] - y, self.y[1] - y]
         self.last_moved = time.monotonic()
