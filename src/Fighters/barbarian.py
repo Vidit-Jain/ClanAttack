@@ -64,11 +64,11 @@ class Barbarian(Fighter):
         movement_options = []
         if self.x[0] > x:
             movement_options.append([-1, 0])
-        elif self.x[0] < x:
+        if self.x[0] < x:
             movement_options.append([1, 0])
-        elif self.y[0] > y:
+        if self.y[0] > y:
             movement_options.append([0, -1])
-        elif self.y[0] < y:
+        if self.y[0] < y:
             movement_options.append([0, 1])
         movement_choice = random.choice(movement_options)
         collision_obj = super().move(movement_choice[0], movement_choice[1])

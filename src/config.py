@@ -91,3 +91,14 @@ CANNON = {
     "damage": 33,
     "symbol": "Y",
 }
+
+SPELL = {
+    "RAGE": {
+        "duration": 5,
+        "uses": 1
+    },
+    "HEAL": {
+        "uses": 2
+    },
+    "control_keys": ["h", "r"]
+}

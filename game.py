@@ -8,6 +8,7 @@ from src.Buildings.cannon import *
 from src.Buildings.wall import *
 from src.config import *
 from src.helper import *
+from src.spell import *
 
 
 class Game:
@@ -16,7 +17,9 @@ class Game:
         self.townhall = None
         self.input = Get()
         self.screen = Screen()
-        self.x = 0
+        self.rageSpell = Rage(self)
+        self.healSpell = Heal(self)
+        self.rageActive = False
 
         add_king(self)
         add_townhall(self)
@@ -33,16 +36,17 @@ class Game:
             self.king.move(ch)
         elif ch in SPAWNPOINT["control_keys"]:
             self.barbarians.append(spawn(game, ch))
+        elif ch in SPELL["control_keys"]:
+            use_spell(self, ch)
         if ch == "c":
-            print(self.x)
             return 1
         return 0
-
 
     def loop(self):
         while 1:
             self.screen.clear()
             self.screen.add_to_screen(self)
+            self.rageSpell.check_expired()
             move_barbarians(game)
             remove_destroyed(game)
             self.screen.render()
