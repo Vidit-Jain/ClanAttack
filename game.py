@@ -40,7 +40,7 @@ class Game:
         # Don't process input if game over
         if self.game_end == 1:
             return 0
-        if ch in KING["control_keys"]:
+        if ch in KING["control_keys"] and self.king is not None:
             self.king.move(ch)
         elif ch in SPAWNPOINT["control_keys"]:
             spawn(game, ch)

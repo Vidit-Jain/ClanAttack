@@ -9,7 +9,8 @@ class Spell:
         self.game = game
 
     def use(self):
-        pass
+        if self.uses > 0:
+            self.uses -= 1
 
 
 class Rage(Spell):
@@ -19,8 +20,8 @@ class Rage(Spell):
         self.last_used = -self.duration
 
     def use(self):
+        super().use()
         if self.uses > 0:
-            self.uses -= 1
             self.last_used = time.monotonic()
             self.game.rageActive = 1
             play("src/AudioFiles/rage.mp3")
@@ -38,8 +39,8 @@ class Heal(Spell):
         super().__init__(game, SPELL["HEAL"]["uses"])
 
     def use(self):
+        super().use()
         if self.uses > 0:
-            self.uses -= 1
             play("src/AudioFiles/heal.mp3")
             for barbarian in self.game.barbarians:
                 barbarian.health = min(
