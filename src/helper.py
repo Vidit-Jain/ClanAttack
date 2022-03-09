@@ -1,4 +1,4 @@
-from os.path import exists
+import os
 import pickle
 def remove_destroyed(game):
     for barbarian in game.barbarians:
@@ -44,8 +44,12 @@ def game_win(game):
 
 def store_replay(game):
     filename = 0
-    while exists("replays/" + str(filename)):
+    while os.path.exists("replays/" + str(filename)):
         filename += 1
+
+    if not os.path.exists('replays'):
+        os.makedirs('replays')
+
     with open("replays/" + str(filename), 'ab') as file:
         pickle.dump(game.frames, file)
     return str(filename)
