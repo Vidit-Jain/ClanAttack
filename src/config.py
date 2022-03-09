@@ -15,7 +15,7 @@ GAME = {
     "symbol": " ",
     "color": Fore.WHITE,
     "fps": 20,
-    "barbarian_count": 3,
+    "barbarian_count": 5,
 }
 INITPOS = {
     "spawnpoints": [[37, 15], [90, 42], [125, 25]],
@@ -68,8 +68,8 @@ WALL = {
 
 TOWNHALL = {
     "health": 300,
-    "width": 4,
-    "height": 3,
+    "width": 3,
+    "height": 4,
     "symbol": "$",
     "starting_coords": [GAME["window"]["width"] / 2, GAME["window"]["height"] / 2],
 }
