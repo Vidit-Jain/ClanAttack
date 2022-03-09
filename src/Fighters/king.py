@@ -1,4 +1,5 @@
 from src.Fighters.fighter import *
+from src.audio import *
 
 
 class King(Fighter):
@@ -30,7 +31,7 @@ class King(Fighter):
         self.attack_loop(self.game.huts, buildings)
         self.attack_loop(self.game.walls, buildings)
         self.attack_loop(self.game.cannons, buildings)
-
+        play("src/AudioFiles/king_attack.mp3")
         if self.game.townhall is not None:
             x, y = self.closest_point(self.game.townhall)
             if abs(x - self.x[0]) + abs(y - self.y[0]) <= self.range:

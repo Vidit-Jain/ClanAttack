@@ -1,5 +1,6 @@
 import time
 from src.config import *
+from src.audio import *
 
 
 class Spell:
@@ -22,6 +23,7 @@ class Rage(Spell):
             self.uses -= 1
             self.last_used = time.monotonic()
             self.game.rageActive = 1
+            play("src/AudioFiles/rage.mp3")
 
     def check_expired(self):
         if (
@@ -38,6 +40,7 @@ class Heal(Spell):
     def use(self):
         if self.uses > 0:
             self.uses -= 1
+            play("src/AudioFiles/heal.mp3")
             for barbarian in self.game.barbarians:
                 barbarian.health = min(
                     int(barbarian.health * 1.5), barbarian.max_health

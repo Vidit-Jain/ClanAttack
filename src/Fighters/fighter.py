@@ -1,5 +1,6 @@
 from src.object import Object
 from src.config import *
+from src.audio import *
 import time
 
 
@@ -82,6 +83,7 @@ class Fighter(Object):
         if time.monotonic() - self.last_attacked < 1 / self.attack_speed:
             return
         self.last_attacked = time.monotonic()
+        play("src/AudioFiles/barbarian_attack.mp3")
         obj.damaged(self.damage * (self.game.rageActive + 1))
 
     def closest_point(self, obj):

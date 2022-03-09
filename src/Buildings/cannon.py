@@ -1,7 +1,8 @@
 import time
-
+from subprocess import DEVNULL, STDOUT, check_call, Popen
 from src.Buildings.building import Building
 from src.config import CANNON, INITPOS
+from src.audio import *
 
 
 class Cannon(Building):
@@ -27,6 +28,7 @@ class Cannon(Building):
         if time.monotonic() - self.last_attacked < 1 / self.attack_speed:
             return
         self.last_attacked = time.monotonic()
+        play("src/AudioFiles/cannon.mp3")
         obj.damaged(self.damage)
 
     def __dist(self, obj):
