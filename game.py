@@ -6,7 +6,6 @@ from src.Buildings.spawnpoint import *
 from src.Buildings.hut import *
 from src.Buildings.cannon import *
 from src.Buildings.wall import *
-from src.config import *
 from src.helper import *
 from src.spell import *
 
