@@ -60,10 +60,12 @@ class Screen:
                 i
             ]
 
-    def render(self):
+    def render(self, game):
         if not self.should_render():
             return
         set_cursor()
+
+        game.frames.append(self.screen)
         output = ""
         for i in self.screen:
             for j in i:
@@ -108,9 +110,6 @@ class Screen:
         self.add_health_bar(game)
         self.add_spells_bar(game)
 
-        # hello = "Hello"
-        # for i in range(0, len(hello)):
-        #     self.screen[5][120 + i] = hello[i]
         if game.townhall is not None:
             self.add(game.townhall)
         if game.king is not None:

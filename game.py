@@ -24,6 +24,7 @@ class Game:
         self.game_end = 0
         self.game_result = 0
         self.x = []
+        self.frames = []
         add_king(self)
         add_townhall(self)
 
@@ -36,6 +37,8 @@ class Game:
     def handle_input(self):
         ch = input_to(self.input)
         if ch == "c":
+            file = store_replay(self)
+            print("Replay stored in replays/" + file)
             return 1
         # Don't process input if game over
         if self.game_end == 1:
@@ -61,7 +64,7 @@ class Game:
             else:
                 self.screen.add_game_end(self.game_result)
 
-            self.screen.render()
+            self.screen.render(self)
             if self.handle_input() == 1:
                 break
 

@@ -1,3 +1,5 @@
+from os.path import exists
+import pickle
 def remove_destroyed(game):
     for barbarian in game.barbarians:
         if barbarian.destroyed:
@@ -38,6 +40,15 @@ def game_over(game):
 
 def game_win(game):
     return game.townhall is None and len(game.huts) == 0 and len(game.cannons) == 0
+
+
+def store_replay(game):
+    filename = 0
+    while exists("replays/" + str(filename)):
+        filename += 1
+    with open("replays/" + str(filename), 'ab') as file:
+        pickle.dump(game.frames, file)
+    return str(filename)
 
 
 def game_ended(game):
