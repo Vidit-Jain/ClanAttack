@@ -43,12 +43,8 @@ class Heal(Spell):
             super().use()
             play("src/AudioFiles/heal.mp3")
             for barbarian in self.game.barbarians:
-                barbarian.health = min(
-                    int(barbarian.health * 1.5), barbarian.max_health
-                )
-            self.game.king.health = min(
-                self.game.king.max_health, int(self.game.king.health * 1.5)
-            )
+                barbarian.heal()
+            self.game.king.heal()
 
 
 def use_spell(game, ch: str):

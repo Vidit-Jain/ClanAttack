@@ -37,7 +37,7 @@ class Screen:
         if game.king is None:
             return
 
-        bar = "+" * int(game.king.health * 10 / game.king.max_health)
+        bar = "+" * int(game.king.get_health() * 10 / game.king.get_max_health())
         bar.ljust(10, " ")
         for i in range(0, len(bar)):
             self.screen[MESSAGES["stats"][0] + 1][MESSAGES["stats"][1] + i] = bar[i]

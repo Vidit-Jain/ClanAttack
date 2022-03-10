@@ -95,3 +95,8 @@ class Fighter(Object):
                     x, y = i, j
                     least_distance = abs(self.x[0] - i) + abs(self.y[0] - i)
         return x, y
+
+    def heal(self):
+        self._health = min(
+            int(self._health * 1.5), self._max_health
+        )

@@ -1,5 +1,5 @@
 from src.object import Object
-from src.config import BUILDING, COLORS
+from src.config import BUILDING
 
 
 class Building(Object):
@@ -20,9 +20,9 @@ class Building(Object):
         self.building_type = building_type
 
     def __update_color(self):
-        if self.health / self.max_health >= 0.5:
+        if self._health / self._max_health >= 0.5:
             self.color = BUILDING["colors"][2]
-        elif self.health / self.max_health >= 0.2:
+        elif self._health / self._max_health >= 0.2:
             self.color = BUILDING["colors"][1]
         else:
             self.color = BUILDING["colors"][0]

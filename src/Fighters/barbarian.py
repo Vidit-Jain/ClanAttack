@@ -70,9 +70,9 @@ class Barbarian(Fighter):
             self.attack(collision_obj)
 
     def __update_color(self):
-        if self.health / self.max_health >= 0.5:
+        if self._health / self._max_health >= 0.5:
             self.color = BARBARIAN["colors"][2]
-        elif self.health / self.max_health >= 0.2:
+        elif self._health / self._max_health >= 0.2:
             self.color = BARBARIAN["colors"][1]
         else:
             self.color = BARBARIAN["colors"][0]
