@@ -44,18 +44,18 @@ class Fighter(Object):
     def bound_movement(self, x: int, y: int):
         if self.x[0] + x < 0:
             x = -self.x[0]
-        if self.x[1] + x > GAME["window"]["width"]:
-            x = GAME["window"]["width"] - self.x[1]
+        if self.x[1] + x > self.game.screen.get_width():
+            x = self.game.screen.get_width() - self.x[1]
 
         if self.y[0] + y < 0:
             y = -self.y[0]
-        if self.y[1] + y > GAME["window"]["height"]:
-            y = GAME["window"]["height"] - self.y[1]
+        if self.y[1] + y > self.game.screen.get_height():
+            y = self.game.screen.get_height() - self.y[1]
         return x, y
 
     def move(self, x: int, y: int):
         if time.monotonic() - self.last_moved < 1 / (
-            self.move_speed * (self.game.rageActive + 1)
+            self.move_speed * (self.game.rage.get_active() + 1)
         ):
             return
 
@@ -84,7 +84,7 @@ class Fighter(Object):
             return
         self.last_attacked = time.monotonic()
         play("src/AudioFiles/barbarian_attack.mp3")
-        obj.damaged(self.damage * (self.game.rageActive + 1))
+        obj.damaged(self.damage * (self.game.rage.get_active() + 1))
 
     def closest_point(self, obj):
         least_distance = 1e6

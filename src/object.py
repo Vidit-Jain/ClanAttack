@@ -26,5 +26,5 @@ class Object:
         return self._health
 
     def get_max_health(self):
-        return self._health
+        return self._max_health
 

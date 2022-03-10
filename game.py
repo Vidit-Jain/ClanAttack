@@ -16,10 +16,9 @@ class Game:
         self.townhall = None
         self.input = Get()
         self.screen = Screen()
-        self.rageSpell = Rage(self)
+        self.rage = Rage(self)
         self.healSpell = Heal(self)
         self.barbarian_count = GAME["barbarian_count"]
-        self.rageActive = 0
         self.game_end = 0
         self.game_result = 0
         self.x = []
@@ -55,7 +54,7 @@ class Game:
             self.screen.clear()
             self.screen.add_to_screen(self)
             if self.game_end == 0:
-                self.rageSpell.check_expired()
+                self.rage.check_expired()
                 shoot_cannons(game)
                 move_barbarians(game)
                 remove_destroyed(game)

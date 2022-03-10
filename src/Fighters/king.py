@@ -37,7 +37,7 @@ class King(Fighter):
             if abs(x - self.x[0]) + abs(y - self.y[0]) <= self.range:
                 buildings.add(self.game.townhall)
         for obj in buildings:
-            obj.damaged(self.damage * (self.game.rageActive + 1))
+            obj.damaged(self.damage * (self.game.rage.get_active() + 1))
 
     def move(self, ch: str):
         if ch == "w":
