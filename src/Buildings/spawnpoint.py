@@ -22,7 +22,7 @@ def spawn(game, ch: str):
         return
     spawnpoint = game.spawnpoints[ord(ch[0]) - ord("1"[0])]
     game.barbarian_count -= 1
-    game.barbarians.append(Barbarian(game, spawnpoint.x[0], spawnpoint.y[0]))
+    game.barbarians.append(Barbarian(game, spawnpoint.get_x()[0], spawnpoint.get_y()[0]))
 
 
 def add_spawnpoints(game):

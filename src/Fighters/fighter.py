@@ -42,15 +42,15 @@ class Fighter(Object):
 
     # Limits movement in case given movement would result in falling off screen
     def bound_movement(self, x: int, y: int):
-        if self.x[0] + x < 0:
-            x = -self.x[0]
-        if self.x[1] + x > self.game.screen.get_width():
-            x = self.game.screen.get_width() - self.x[1]
+        if self._x[0] + x < 0:
+            x = -self._x[0]
+        if self._x[1] + x > self.game.screen.get_width():
+            x = self.game.screen.get_width() - self._x[1]
 
-        if self.y[0] + y < 0:
-            y = -self.y[0]
-        if self.y[1] + y > self.game.screen.get_height():
-            y = self.game.screen.get_height() - self.y[1]
+        if self._y[0] + y < 0:
+            y = -self._y[0]
+        if self._y[1] + y > self.game.screen.get_height():
+            y = self.game.screen.get_height() - self._y[1]
         return x, y
 
     def move(self, x: int, y: int):
@@ -60,8 +60,8 @@ class Fighter(Object):
             return
 
         x, y = self.bound_movement(x, y)
-        self.x = [self.x[0] + x, self.x[1] + x]
-        self.y = [self.y[0] + y, self.y[1] + y]
+        self._x = [self._x[0] + x, self._x[1] + x]
+        self._y = [self._y[0] + y, self._y[1] + y]
 
         # Return object you collide with and reverts the movement, else None
         obj = self.loop_collide(self.game.huts)
@@ -72,8 +72,8 @@ class Fighter(Object):
         if obj is None and self.game.townhall is not None:
             obj = self.loop_collide([self.game.townhall])
         if obj is not None:
-            self.x = [self.x[0] - x, self.x[1] - x]
-            self.y = [self.y[0] - y, self.y[1] - y]
+            self._x = [self._x[0] - x, self._x[1] - x]
+            self._y = [self._y[0] - y, self._y[1] - y]
         else:
             self.last_moved = time.monotonic()
 
@@ -88,12 +88,12 @@ class Fighter(Object):
 
     def closest_point(self, obj):
         least_distance = 1e6
-        x, y = obj.x[0], obj.y[0]
-        for i in range(int(obj.x[0]), int(obj.x[1])):
-            for j in range(int(obj.y[0]), int(obj.y[1])):
-                if abs(self.x[0] - i) + abs(self.y[0] - i) < least_distance:
+        x, y = obj.get_x()[0], obj.get_y()[0]
+        for i in range(int(obj.get_x()[0]), int(obj.get_x()[1])):
+            for j in range(int(obj.get_y()[0]), int(obj.get_y()[1])):
+                if abs(self._x[0] - i) + abs(self._y[0] - i) < least_distance:
                     x, y = i, j
-                    least_distance = abs(self.x[0] - i) + abs(self.y[0] - i)
+                    least_distance = abs(self._x[0] - i) + abs(self._y[0] - i)
         return x, y
 
     def heal(self):

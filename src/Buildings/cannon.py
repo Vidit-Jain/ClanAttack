@@ -34,7 +34,7 @@ class Cannon(Building):
     def __dist(self, obj):
         if obj is None:
             return 1e6
-        return abs(self.x[0] - obj.x[0]) + abs(self.y[0] - obj.y[0])
+        return abs(self._x[0] - obj.get_x()[0]) + abs(self._y[0] - obj.get_y()[0])
 
     def shoot(self):
         best = None

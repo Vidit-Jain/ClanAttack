@@ -20,10 +20,10 @@ class Barbarian(Fighter):
     def __min_dist(self, obj):
         least_distance = 1e6
         if obj is not None:
-            for i in range(int(obj.x[0]), int(obj.x[1])):
-                for j in range(int(obj.y[0]), int(obj.y[1])):
+            for i in range(int(obj.get_x()[0]), int(obj.get_x()[1])):
+                for j in range(int(obj.get_y()[0]), int(obj.get_y()[1])):
                     least_distance = min(
-                        least_distance, abs(self.x[0] - i) + abs(self.y[0] - j)
+                        least_distance, abs(self._x[0] - i) + abs(self._y[0] - j)
                     )
         return least_distance
 
@@ -54,13 +54,13 @@ class Barbarian(Fighter):
 
         x, y = self.closest_point(best)
         movement_options = []
-        if self.x[0] > x:
+        if self._x[0] > x:
             movement_options.append([-1, 0])
-        if self.x[0] < x:
+        if self._x[0] < x:
             movement_options.append([1, 0])
-        if self.y[0] > y:
+        if self._y[0] > y:
             movement_options.append([0, -1])
-        if self.y[0] < y:
+        if self._y[0] < y:
             movement_options.append([0, 1])
         movement_choice = random.choice(movement_options)
 
@@ -71,11 +71,11 @@ class Barbarian(Fighter):
 
     def __update_color(self):
         if self._health / self._max_health >= 0.5:
-            self.color = BARBARIAN["colors"][2]
+            self._color = BARBARIAN["colors"][2]
         elif self._health / self._max_health >= 0.2:
-            self.color = BARBARIAN["colors"][1]
+            self._color = BARBARIAN["colors"][1]
         else:
-            self.color = BARBARIAN["colors"][0]
+            self._color = BARBARIAN["colors"][0]
 
     def damaged(self, damage: int):
         self.__update_color()

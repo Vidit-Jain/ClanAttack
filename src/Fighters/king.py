@@ -20,7 +20,7 @@ class King(Fighter):
     def attack_loop(self, obj_list, buildings: set):
         for obj in obj_list:
             x, y = self.closest_point(obj)
-            if abs(x - self.x[0]) + abs(y - self.y[0]) <= self.range:
+            if abs(x - self._x[0]) + abs(y - self._y[0]) <= self.range:
                 buildings.add(obj)
 
     def attack(self):
@@ -34,7 +34,7 @@ class King(Fighter):
         play("src/AudioFiles/king_attack.mp3")
         if self.game.townhall is not None:
             x, y = self.closest_point(self.game.townhall)
-            if abs(x - self.x[0]) + abs(y - self.y[0]) <= self.range:
+            if abs(x - self._x[0]) + abs(y - self._y[0]) <= self.range:
                 buildings.add(self.game.townhall)
         for obj in buildings:
             obj.damaged(self.damage * (self.game.rage.get_active() + 1))

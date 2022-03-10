@@ -83,14 +83,14 @@ class Screen:
     def add(self, obj: Object):
         if obj is None:
             return
-        symbol = obj.color + GAME["background"] + obj.symbol
-        for i in range(int(obj.y[0]), int(obj.y[1])):
-            for j in range(int(obj.x[0]), int(obj.x[1])):
+        symbol = obj.get_color() + GAME["background"] + obj.get_symbol()
+        for i in range(int(obj.get_y()[0]), int(obj.get_y()[1])):
+            for j in range(int(obj.get_x()[0]), int(obj.get_x()[1])):
                 self._screen[i][j] = symbol
 
     def remove(self, obj: Object):
-        for i in range(int(obj.y[0]), int(obj.y[1])):
-            for j in range(int(obj.x[0]), int(obj.x[1])):
+        for i in range(int(obj.get_y()[0]), int(obj.get_y()[1])):
+            for j in range(int(obj.get_x()[0]), int(obj.get_x()[1])):
                 self._screen[i][j] = GAME["background"] + GAME["color"] + GAME["symbol"]
 
     def clear(self):

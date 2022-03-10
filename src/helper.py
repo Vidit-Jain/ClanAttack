@@ -1,26 +1,28 @@
 import os
 import pickle
+
+
 def remove_destroyed(game):
     for barbarian in game.barbarians:
-        if barbarian.destroyed:
+        if barbarian.is_destroyed():
             game.barbarians.remove(barbarian)
 
     for wall in game.walls:
-        if wall.destroyed:
+        if wall.is_destroyed():
             game.walls.remove(wall)
 
     for hut in game.huts:
-        if hut.destroyed:
+        if hut.is_destroyed():
             game.huts.remove(hut)
 
     for cannon in game.cannons:
-        if cannon.destroyed:
+        if cannon.is_destroyed():
             game.cannons.remove(cannon)
 
-    if game.king is not None and game.king.destroyed:
+    if game.king is not None and game.king.is_destroyed():
         game.king = None
 
-    if game.townhall is not None and game.townhall.destroyed:
+    if game.townhall is not None and game.townhall.is_destroyed():
         game.townhall = None
 
 
