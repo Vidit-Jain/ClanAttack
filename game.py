@@ -66,6 +66,7 @@ class Game:
                 break
 
 
-game = Game()
-erase_screen()
-game.loop()
+if resolution_check():
+    game = Game()
+    erase_screen()
+    game.loop()

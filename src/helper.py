@@ -1,5 +1,6 @@
 import os
 import pickle
+from src.config import *
 
 
 def remove_destroyed(game):
@@ -64,3 +65,11 @@ def game_ended(game):
     elif game_over(game):
         game.game_end = 1
         game.game_result = -1
+
+
+def resolution_check():
+    curr_height, curr_width = os.popen("stty size", "r").read().split()
+    if int(curr_width) < GAME["window"]["width"] or int(curr_height) < GAME["window"]["height"]:
+        print("Your terminal is too small to play this game")
+        return False
+    return True
