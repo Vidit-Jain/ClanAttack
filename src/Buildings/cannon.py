@@ -17,19 +17,19 @@ class Cannon(Building):
             CANNON["width"],
             CANNON["health"],
         )
-        self.damage = CANNON["damage"]
-        self.attack_speed = CANNON["attack_speed"]
+        self._damage = CANNON["damage"]
+        self._attack_speed = CANNON["attack_speed"]
         self.last_attacked = 0
         self.range = CANNON["range"]
 
     def attack(self, obj):
         if obj is None:
             return
-        if time.monotonic() - self.last_attacked < 1 / self.attack_speed:
+        if time.monotonic() - self.last_attacked < 1 / self._attack_speed:
             return
         self.last_attacked = time.monotonic()
         play("src/AudioFiles/cannon.mp3")
-        obj.damaged(self.damage)
+        obj.damaged(self._damage)
 
     def __dist(self, obj):
         if obj is None:

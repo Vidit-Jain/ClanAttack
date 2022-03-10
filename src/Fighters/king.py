@@ -15,18 +15,18 @@ class King(Fighter):
             KING["move_speed"],
             KING["attack_speed"],
         )
-        self.range = KING["range"]
+        self._range = KING["range"]
 
     def attack_loop(self, obj_list, buildings: set):
         for obj in obj_list:
             x, y = self.closest_point(obj)
-            if abs(x - self._x[0]) + abs(y - self._y[0]) <= self.range:
+            if abs(x - self._x[0]) + abs(y - self._y[0]) <= self._range:
                 buildings.add(obj)
 
     def attack(self):
-        if time.monotonic() - self.last_attacked < 1 / self.attack_speed:
+        if time.monotonic() - self._last_attacked < 1 / self._attack_speed:
             return
-        self.last_attacked = time.monotonic()
+        self._last_attacked = time.monotonic()
         buildings = set()
         self.attack_loop(self.game.huts, buildings)
         self.attack_loop(self.game.walls, buildings)
@@ -34,10 +34,10 @@ class King(Fighter):
         play("src/AudioFiles/king_attack.mp3")
         if self.game.townhall is not None:
             x, y = self.closest_point(self.game.townhall)
-            if abs(x - self._x[0]) + abs(y - self._y[0]) <= self.range:
+            if abs(x - self._x[0]) + abs(y - self._y[0]) <= self._range:
                 buildings.add(self.game.townhall)
         for obj in buildings:
-            obj.damaged(self.damage * (self.game.rage.get_active() + 1))
+            obj.damaged(self._damage * (self.game.rage.get_active() + 1))
 
     def move(self, ch: str):
         if ch == "w":

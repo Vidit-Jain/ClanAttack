@@ -27,11 +27,11 @@ class Fighter(Object):
             FIGHTER["width"],
             health,
         )
-        self.damage = damage
-        self.move_speed = move_speed
-        self.last_moved = 0
-        self.last_attacked = 0
-        self.attack_speed = attack_speed
+        self._damage = damage
+        self._move_speed = move_speed
+        self._last_moved = 0
+        self._last_attacked = 0
+        self._attack_speed = attack_speed
 
     def loop_collide(self, obj_list: list[Object]):
         if obj_list is not None:
@@ -54,8 +54,8 @@ class Fighter(Object):
         return x, y
 
     def move(self, x: int, y: int):
-        if time.monotonic() - self.last_moved < 1 / (
-            self.move_speed * (self.game.rage.get_active() + 1)
+        if time.monotonic() - self._last_moved < 1 / (
+                self._move_speed * (self.game.rage.get_active() + 1)
         ):
             return
 
@@ -75,16 +75,16 @@ class Fighter(Object):
             self._x = [self._x[0] - x, self._x[1] - x]
             self._y = [self._y[0] - y, self._y[1] - y]
         else:
-            self.last_moved = time.monotonic()
+            self._last_moved = time.monotonic()
 
         return obj
 
     def attack(self, obj):
-        if time.monotonic() - self.last_attacked < 1 / self.attack_speed:
+        if time.monotonic() - self._last_attacked < 1 / self._attack_speed:
             return
-        self.last_attacked = time.monotonic()
+        self._last_attacked = time.monotonic()
         play("src/AudioFiles/barbarian_attack.mp3")
-        obj.damaged(self.damage * (self.game.rage.get_active() + 1))
+        obj.damaged(self._damage * (self.game.rage.get_active() + 1))
 
     def closest_point(self, obj):
         least_distance = 1e6
