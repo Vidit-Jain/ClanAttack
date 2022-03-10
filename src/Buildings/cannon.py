@@ -9,7 +9,6 @@ class Cannon(Building):
     def __init__(self, game, startx: int, starty: int):
         super().__init__(
             game,
-            "cannon",
             CANNON["symbol"],
             startx,
             starty,
@@ -19,15 +18,15 @@ class Cannon(Building):
         )
         self._damage = CANNON["damage"]
         self._attack_speed = CANNON["attack_speed"]
-        self.last_attacked = 0
-        self.range = CANNON["range"]
+        self._last_attacked = 0
+        self._range = CANNON["range"]
 
     def attack(self, obj):
         if obj is None:
             return
-        if time.monotonic() - self.last_attacked < 1 / self._attack_speed:
+        if time.monotonic() - self._last_attacked < 1 / self._attack_speed:
             return
-        self.last_attacked = time.monotonic()
+        self._last_attacked = time.monotonic()
         play("src/AudioFiles/cannon.mp3")
         obj.damaged(self._damage)
 
@@ -46,7 +45,7 @@ class Cannon(Building):
         ):
             best = self.game.king
 
-        if self.__dist(best) > self.range:
+        if self.__dist(best) > self._range:
             return
         self.attack(best)
 

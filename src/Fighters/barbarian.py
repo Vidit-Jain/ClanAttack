@@ -66,7 +66,7 @@ class Barbarian(Fighter):
 
         # collision_obj stores the object you collided with
         collision_obj = super().move(movement_choice[0], movement_choice[1])
-        if collision_obj is not None and collision_obj != "spawnpoint":
+        if collision_obj is not None:
             self.attack(collision_obj)
 
     def __update_color(self):

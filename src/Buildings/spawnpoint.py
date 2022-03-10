@@ -7,7 +7,6 @@ class Spawnpoint(Building):
     def __init__(self, game, startx: int, starty: int):
         super().__init__(
             game,
-            "spawnpoint",
             SPAWNPOINT["symbol"],
             startx,
             starty,

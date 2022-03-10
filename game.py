@@ -21,7 +21,6 @@ class Game:
         self.barbarian_count = GAME["barbarian_count"]
         self.game_end = 0
         self.game_result = 0
-        self.x = []
         self.frames = []
         add_king(self)
         add_townhall(self)

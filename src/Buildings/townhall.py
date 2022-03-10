@@ -6,7 +6,6 @@ class Townhall(Building):
     def __init__(self, game):
         super().__init__(
             game,
-            "townhall",
             TOWNHALL["symbol"],
             TOWNHALL["starting_coords"][0],
             TOWNHALL["starting_coords"][1],

@@ -6,7 +6,6 @@ class Building(Object):
     def __init__(
         self,
         game,
-        building_type: str,
         symbol: str,
         startx: int,
         starty: int,
@@ -17,7 +16,6 @@ class Building(Object):
         super().__init__(
             game, symbol, BUILDING["colors"][-1], startx, starty, height, width, health
         )
-        self.building_type = building_type
 
     def __update_color(self):
         if self._health / self._max_health >= 0.5:

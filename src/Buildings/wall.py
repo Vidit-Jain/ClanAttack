@@ -6,7 +6,6 @@ class Wall(Building):
     def __init__(self, game, startx: int, starty: int):
         super().__init__(
             game,
-            "wall",
             WALL["symbol"],
             startx,
             starty,
