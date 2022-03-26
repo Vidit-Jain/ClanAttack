@@ -19,7 +19,7 @@ def remove_destroyed(game):
 def move_troops(game):
     for troop_arr in game.troops:
         for troop in troop_arr:
-            troop.move()
+            troop.action()
 
 
 def shoot_cannons(game):

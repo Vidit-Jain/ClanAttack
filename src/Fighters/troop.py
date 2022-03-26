@@ -82,6 +82,10 @@ class Troop(Fighter):
         if self._y[0] < y:
             movement_options.append([0, 1])
 
+        # If you're supposed to be on top
+        if len(movement_options) == 0:
+            return
+
         if len(movement_options) == 2:
             a = [movement_options[0][0] + movement_options[1][0],
                  movement_options[0][1] + movement_options[1][1]]

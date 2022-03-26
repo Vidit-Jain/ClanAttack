@@ -1,8 +1,5 @@
 from src.Fighters.troop import Troop
-from src.Fighters.fighter import Fighter
 from src.config import BARBARIAN
-from src.audio import *
-import random
 
 
 class Barbarian(Troop):
@@ -22,3 +19,5 @@ class Barbarian(Troop):
             [game.huts, game.cannons, game.townhall]
         )
 
+    def action(self):
+        self.move()

@@ -107,3 +107,6 @@ class Fighter(Object):
         self._health = min(
             int(self._health * 1.5), self._max_health
         )
+
+    def action(self):
+        pass

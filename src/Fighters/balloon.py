@@ -1,7 +1,5 @@
 from src.Fighters.troop import Troop
 from src.config import BALLOON
-from src.audio import *
-import random
 
 
 class Balloon(Troop):
@@ -17,15 +15,22 @@ class Balloon(Troop):
             BALLOON["move_speed"],
             BALLOON["attack_speed"],
             BALLOON["colors"],
-            [game.huts, game.cannons, game.townhall]
+            [game.wizards, game.cannons, game.townhall, game.huts],
+            []
         )
 
-    def damaged(self, damage: int):
-        self.__update_color()
-        super().damaged(damage)
+    def best_building(self):
+        best = None
+        for i in range(2):
+            for building in self._building_preferences[i]:
+                if self._Troop__min_dist(building) < self._Troop__min_dist(best):
+                    best = building
+        if best is not None:
+            return best
+        return super().best_building()
 
-    def attack(self, obj):
-        if not super(Troop, self).attack():
-            return
-        play("src/AudioFiles/barbarian_attack.mp3")
-        obj.damaged(self._damage * (self.game.rage.get_active() + 1))
+    def action(self):
+        self.move()
+        best = self.best_building()
+        if self._Troop__min_dist(best) == 0:
+            self.attack(best)
