@@ -14,6 +14,7 @@ class Balloon(Troop):
             BALLOON["health"],
             BALLOON["move_speed"],
             BALLOON["attack_speed"],
+            BALLOON["sound_file"],
             BALLOON["colors"],
             [game.wizards, game.cannons, game.townhall, game.huts],
             []

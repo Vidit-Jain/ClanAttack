@@ -37,8 +37,8 @@ class Cannon(Building):
 
     def shoot(self):
         best = None
-        for troop_arr in self.game.troops:
-            for troop in troop_arr:
+        for i in range(len(self.game.troops) - 1):
+            for troop in self.game.troops[i]:
                 if self.__dist(troop) < self.__dist(best):
                     best = troop
         if self.game.king is not None and self.__dist(self.game.king) < self.__dist(

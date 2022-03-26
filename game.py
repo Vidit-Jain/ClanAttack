@@ -24,6 +24,7 @@ class Game:
         self.huts = []
         self.cannons = []
         self.townhall = []
+        self.wizards = []
         add_spawnpoints(self)
         add_townhall(self)
         add_huts(self)

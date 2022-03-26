@@ -2,6 +2,7 @@ from src.Buildings.building import Building
 from src.config import SPAWNPOINT, INITPOS
 from src.Fighters.barbarian import *
 from src.Fighters.archer import *
+from src.Fighters.balloon import *
 
 
 class Spawnpoint(Building):
@@ -29,7 +30,7 @@ def spawn(game, ch: str):
     elif b == 1:
         game.archers.append(Archer(game, spawnpoint.get_x()[0], spawnpoint.get_y()[0]))
     elif b == 2:
-        game.balloons.append(Archer(game, spawnpoint.get_x()[0], spawnpoint.get_y()[0]))
+        game.balloons.append(Balloon(game, spawnpoint.get_x()[0], spawnpoint.get_y()[0]))
 
 
 def add_spawnpoints(game):

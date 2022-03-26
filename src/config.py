@@ -54,7 +54,7 @@ BALLOON = {
     "move_speed": BARBARIAN["move_speed"] * 2,
     "attack_speed": 1,
     "symbol": "B",
-    "sound_file": "src/AudioFiles/barbarian_attack.mp3",
+    "sound_file": "src/AudioFiles/balloon_attack.mp3",
 }
 KING = {
     "damage": 50,
