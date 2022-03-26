@@ -113,10 +113,9 @@ class Screen:
         self.loop_add(game.cannons)
         self.loop_add(game.walls)
         self.loop_add(game.barbarians)
+        self.loop_add(game.townhall)
         self.add_health_bar(game)
         self.add_spells_bar(game)
 
-        if game.townhall is not None:
-            self.add(game.townhall)
         if game.king is not None:
             self.add(game.king)

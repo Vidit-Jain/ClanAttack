@@ -16,4 +16,4 @@ class Townhall(Building):
 
 
 def add_townhall(game):
-    game.townhall = Townhall(game)
+    game.townhall = [Townhall(game)]

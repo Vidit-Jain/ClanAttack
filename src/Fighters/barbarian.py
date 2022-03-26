@@ -1,10 +1,10 @@
-from src.Fighters.fighter import Fighter
+from src.Fighters.troop import Troop
 from src.config import BARBARIAN
 from src.audio import *
 import random
 
 
-class Barbarian(Fighter):
+class Barbarian(Troop):
     def __init__(self, game, startx: int, starty: int):
         super().__init__(
             game,
@@ -16,6 +16,7 @@ class Barbarian(Fighter):
             BARBARIAN["health"],
             BARBARIAN["move_speed"],
             BARBARIAN["attack_speed"],
+            [game.huts, game.cannons, game.townhall]
         )
 
     def __min_dist(self, obj):
@@ -31,19 +32,10 @@ class Barbarian(Fighter):
     def best_building(self):
         best = None
 
-        for hut in self.game.huts:
-            if self.__min_dist(hut) < self.__min_dist(best):
-                best = hut
-
-        for cannon in self.game.cannons:
-            if self.__min_dist(cannon) < self.__min_dist(best):
-                best = cannon
-
-        if self.game.townhall is not None and self.__min_dist(
-            self.game.townhall
-        ) < self.__min_dist(best):
-            best = self.game.townhall
-
+        for i in range(len(self._building_preferences)):
+            for building in self._building_preferences[i]:
+                if self.__min_dist(building) < self.__min_dist(best):
+                    best = building
         return best
 
     def move(self):

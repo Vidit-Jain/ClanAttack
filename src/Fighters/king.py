@@ -27,14 +27,9 @@ class King(Fighter):
         if not super().attack():
             return
         buildings = set()
-        self.attack_loop(self.game.huts, buildings)
-        self.attack_loop(self.game.walls, buildings)
-        self.attack_loop(self.game.cannons, buildings)
+        for building_type in self._collision_buildings:
+            self.attack_loop(building_type, buildings)
         play("src/AudioFiles/king_attack.mp3")
-        if self.game.townhall is not None:
-            x, y = self.closest_point(self.game.townhall)
-            if abs(x - self._x[0]) + abs(y - self._y[0]) <= self._range:
-                buildings.add(self.game.townhall)
         for obj in buildings:
             obj.damaged(self._damage * (self.game.rage.get_active() + 1))
 

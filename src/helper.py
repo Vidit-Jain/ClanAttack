@@ -23,8 +23,9 @@ def remove_destroyed(game):
     if game.king is not None and game.king.is_destroyed():
         game.king = None
 
-    if game.townhall is not None and game.townhall.is_destroyed():
-        game.townhall = None
+    for townhall in game.townhall:
+        if townhall.is_destroyed():
+            game.townhall.remove(townhall)
 
 
 def move_barbarians(game):
@@ -42,7 +43,10 @@ def game_over(game):
 
 
 def game_win(game):
-    return game.townhall is None and len(game.huts) == 0 and len(game.cannons) == 0
+    win = True
+    for building_arr in game.imp_buildings:
+        win = win and len(building_arr) == 0
+    return win
 
 
 def store_replay(game):

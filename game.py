@@ -22,19 +22,23 @@ class Game:
         self.game_end = 0
         self.game_result = 0
         self.frames = []
-        add_king(self)
         add_townhall(self)
 
         add_spawnpoints(self)
         add_huts(self)
         add_walls(self)
         add_cannons(self)
+        add_king(self)
         self.barbarians = []
+        self.enemy_buildings = [self.huts, self.walls, self.cannons, self.townhall]
+        self.imp_buildings = [self.huts, self.cannons, self.townhall]
+        self.x = 1
 
     def handle_input(self):
         ch = input_to(self.input)
         if ch == "c":
             file = store_replay(self)
+            print(self.x)
             print("Replay stored in replays/" + file)
             return 1
         # Don't process input if game over

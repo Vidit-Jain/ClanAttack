@@ -16,6 +16,7 @@ class Fighter(Object):
         health: int,
         move_speed: int,
         attack_speed: int,
+        collision_buildings: list = None
     ):
         super().__init__(
             game,
@@ -27,15 +28,20 @@ class Fighter(Object):
             FIGHTER["width"],
             health,
         )
+        if collision_buildings is None:
+            collision_buildings = [game.huts, game.cannons, game.walls, game.townhall]
         self._damage = damage
         self._move_speed = move_speed
         self._last_moved = 0
         self._last_attacked = 0
         self._attack_speed = attack_speed
+        self._collision_buildings = collision_buildings
 
     def loop_collide(self, obj_list: list[Object]):
         if obj_list is not None:
             for obj in obj_list:
+                if obj is None:
+                    continue
                 if self.collide(obj):
                     return obj
         return None
@@ -64,13 +70,13 @@ class Fighter(Object):
         self._y = [self._y[0] + y, self._y[1] + y]
 
         # Return object you collide with and reverts the movement, else None
-        obj = self.loop_collide(self.game.huts)
-        if obj is None:
-            obj = self.loop_collide(self.game.walls)
-        if obj is None:
-            obj = self.loop_collide(self.game.cannons)
-        if obj is None and self.game.townhall is not None:
-            obj = self.loop_collide([self.game.townhall])
+        obj = None
+        self.game.x = self._collision_buildings[3]
+        for obj_list in self._collision_buildings:
+            obj = self.loop_collide(obj_list)
+            if obj is not None:
+                break
+
         if obj is not None:
             self._x = [self._x[0] - x, self._x[1] - x]
             self._y = [self._y[0] - y, self._y[1] - y]
