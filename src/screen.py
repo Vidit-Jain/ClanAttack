@@ -40,10 +40,10 @@ class Screen:
         for i in range(0, len(health)):
             self._screen[MESSAGES["stats"][0]][MESSAGES["stats"][1] + i] = health[i]
 
-        if game.king is None:
+        if game.player is None:
             return
 
-        bar = "+" * int(game.king.get_health() * 10 / game.king.get_max_health())
+        bar = "+" * int(game.player.get_health() * 10 / game.player.get_max_health())
         bar.ljust(10, " ")
         for i in range(0, len(bar)):
             self._screen[MESSAGES["stats"][0] + 1][MESSAGES["stats"][1] + i] = bar[i]
@@ -117,5 +117,5 @@ class Screen:
         self.add_health_bar(game)
         self.add_spells_bar(game)
 
-        if game.king is not None:
-            self.add(game.king)
+        if game.player is not None:
+            self.add(game.player)

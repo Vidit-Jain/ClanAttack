@@ -4,7 +4,7 @@ from src.config import QUEEN
 
 class Queen(Player):
     def __init__(self, game):
-        super().__init__(game, QUEEN)
+        super().__init__(game, QUEEN, "Queen")
         self._tile_dimension = QUEEN["tile_dimension"]
 
     def attacked_buildings(self):
@@ -33,4 +33,4 @@ class Queen(Player):
 
 
 def add_queen(game):
-    game.king = Queen(game)
+    game.player = Queen(game)

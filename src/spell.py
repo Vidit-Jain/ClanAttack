@@ -52,7 +52,7 @@ class Heal(Spell):
             for troop_arr in self._game.troops:
                 for troop in troop_arr:
                     troop.heal()
-            self._game.king.heal()
+            self._game.player.heal()
 
 
 def use_spell(game, ch: str):

@@ -2,7 +2,7 @@ from src.Fighters.fighter import *
 
 
 class Player(Fighter):
-    def __init__(self, game, config: dict):
+    def __init__(self, game, config: dict, name: str):
         super().__init__(
             game,
             config["symbol"],
@@ -17,6 +17,8 @@ class Player(Fighter):
         )
         self._range = config["range"]
         self._last_direction = 'd'
+        self.control_keys = config["control_keys"]
+        self.name = name
 
     def attacked_buildings(self):
         return set()

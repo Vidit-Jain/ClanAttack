@@ -3,7 +3,7 @@ from src.Fighters.player import *
 
 class King(Player):
     def __init__(self, game):
-        super().__init__(game, KING)
+        super().__init__(game, KING, "King")
 
     def attack_loop(self, obj_list, buildings: set):
         for obj in obj_list:
@@ -22,4 +22,4 @@ class King(Player):
 
 
 def add_king(game):
-    game.king = King(game)
+    game.player = King(game)

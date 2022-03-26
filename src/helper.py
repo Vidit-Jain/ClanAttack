@@ -12,8 +12,8 @@ def remove_destroyed(game):
         for troop in troop_arr:
             if troop.is_destroyed():
                 troop_arr.remove(troop)
-    if game.king is not None and game.king.is_destroyed():
-        game.king = None
+    if game.player is not None and game.player.is_destroyed():
+        game.player = None
 
 
 def move_troops(game):
@@ -34,7 +34,7 @@ def game_over(game):
     for troop in game.troop_count:
         alive = alive or troop > 0
 
-    return game.king is None and not alive
+    return game.player is None and not alive
 
 
 def game_win(game):
