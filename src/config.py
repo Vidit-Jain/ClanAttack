@@ -36,6 +36,23 @@ BARBARIAN = {
     "attack_speed": 1,
     "symbol": "!",
 }
+ARCHER = {
+    "damage": BARBARIAN["damage"] / 2,
+    "health": BARBARIAN["health"] / 2,
+    "colors": [Fore.RED, Fore.YELLOW, Fore.GREEN],
+    "move_speed": BARBARIAN["move_speed"] * 2,
+    "attack_speed": 1,
+    "range": 8,
+    "symbol": ">",
+}
+BALLOON = {
+    "damage": BARBARIAN["damage"] * 2,
+    "health": BARBARIAN["health"],
+    "colors": [Fore.RED, Fore.YELLOW, Fore.GREEN],
+    "move_speed": BARBARIAN["move_speed"] * 2,
+    "attack_speed": 1,
+    "symbol": "B",
+}
 KING = {
     "damage": 50,
     "health": 200,
@@ -46,6 +63,18 @@ KING = {
     "symbol": "K",
     "starting_coords": [0, 0],
     "control_keys": ["w", "a", "s", "d", " "],
+}
+
+QUEEN = {
+    "damage": int(KING["damage"] * 0.8),
+    "health": KING["health"],
+    "color": Fore.BLUE,
+    "move_speed": KING["move_speed"],
+    "attack_speed": 0.5,
+    "range": 8,
+    "symbol": "Q",
+    "starting_coords": [0, 0],
+    "control_keys": ["w", "a", "s", "d", " ", "x"],
 }
 
 BUILDING = {
@@ -71,14 +100,15 @@ TOWNHALL = {
     "width": 3,
     "height": 4,
     "symbol": "$",
-    "starting_coords": [GAME["window"]["width"] / 2, GAME["window"]["height"] / 2],
+    # "starting_coords": [GAME["window"]["width"] / 2, GAME["window"]["height"] / 2],
+    "starting_coords": [10, 10],
 }
 
 SPAWNPOINT = {
     "health": 9999,
     "width": 1,
     "height": 1,
-    "control_keys": ["1", "2", "3"],
+    "control_keys": ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
     "symbol": "X",
 }
 
@@ -87,7 +117,7 @@ CANNON = {
     "width": 1,
     "height": 1,
     "attack_speed": 2,
-    "range": 9,
+    "range": 7,
     "damage": 15,
     "symbol": "Y",
 }
