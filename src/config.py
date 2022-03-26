@@ -78,6 +78,8 @@ QUEEN = {
     "range": 8,
     "symbol": "Q",
     "starting_coords": [0, 0],
+    "tile_dimension": 5,
+    "sound_file": "src/AudioFiles/queen_attack.mp3",
     "control_keys": ["w", "a", "s", "d", " ", "x"],
 }
 

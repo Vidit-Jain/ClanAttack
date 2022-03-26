@@ -110,3 +110,4 @@ class Fighter(Object):
 
     def action(self):
         pass
+    

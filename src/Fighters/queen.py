@@ -1,21 +1,36 @@
-from src.Fighters.fighter import *
-class Queen(Fighter):
-    def __init__(self, game):
-        super().__init__(
-            game,
-            QUEEN["symbol"],
-            QUEEN["color"],
-            QUEEN["starting_coords"][0],
-            QUEEN["starting_coords"][1],
-            QUEEN["damage"],
-            QUEEN["health"],
-            QUEEN["move_speed"],
-            QUEEN["attack_speed"],
-        )
-        self._range = QUEEN["range"]
-        self._last_moved = 'd'
+from src.Fighters.player import *
+from src.config import QUEEN
 
-    def attack(self):
-        if not super().attack():
-            return
+
+class Queen(Player):
+    def __init__(self, game):
+        super().__init__(game, QUEEN)
+        self._tile_dimension = QUEEN["tile_dimension"]
+
+    def attacked_buildings(self):
         buildings = set()
+        starting = [0, 0]
+        if self._last_direction == "d":
+            starting = [self._range, 0]
+        elif self._last_direction == "w":
+            starting = [0, -self._range]
+        elif self._last_direction == "a":
+            starting = [-self._range, 0]
+        elif self._last_direction == "s":
+            starting = [0, self._range]
+
+        starting = [starting[0] + self._x[0] - self._tile_dimension // 2,
+                    starting[1] + self._y[0] - self._tile_dimension // 2,
+                    ]
+        dummy = Object(self.game, " ", COLORS["RED"], starting[0], starting[1], self._tile_dimension,
+                       self._tile_dimension, 1)
+        for building_type in self.game.enemy_buildings:
+            for building in building_type:
+                if dummy.collide(building):
+                    buildings.add(building)
+
+        return buildings
+
+
+def add_queen(game):
+    game.king = Queen(game)

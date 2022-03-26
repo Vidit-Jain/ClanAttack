@@ -1,6 +1,7 @@
 from src.game_input import *
 from src.screen import *
 from src.Fighters.king import *
+from src.Fighters.queen import *
 from src.Buildings.townhall import *
 from src.Buildings.spawnpoint import *
 from src.Buildings.hut import *
@@ -41,7 +42,7 @@ class Game:
 
         # Player
         self.king = None
-        add_king(self)
+        add_queen(self)
 
         # Troops
         self.troop_count = GAME["troop_count"]
@@ -62,7 +63,7 @@ class Game:
         if ch in KING["control_keys"] and self.king is not None:
             self.king.move(ch)
         elif ch in SPAWNPOINT["control_keys"]:
-            spawn(game, ch)
+            spawn(self, ch)
         elif ch in SPELL["control_keys"]:
             use_spell(self, ch)
         return 0

@@ -28,7 +28,13 @@ def shoot_cannons(game):
 
 
 def game_over(game):
-    return game.king is None and len(game.barbarians) == 0 and game.barbarian_count == 0
+    alive = False
+    for troop in game.troops:
+        alive = alive or len(troop) != 0
+    for troop in game.troop_count:
+        alive = alive or troop > 0
+
+    return game.king is None and not alive
 
 
 def game_win(game):
