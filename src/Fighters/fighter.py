@@ -79,12 +79,11 @@ class Fighter(Object):
 
         return obj
 
-    def attack(self, obj):
+    def attack(self):
         if time.monotonic() - self._last_attacked < 1 / self._attack_speed:
-            return
+            return False
         self._last_attacked = time.monotonic()
-        play("src/AudioFiles/barbarian_attack.mp3")
-        obj.damaged(self._damage * (self.game.rage.get_active() + 1))
+        return True
 
     def closest_point(self, obj):
         least_distance = 1e6

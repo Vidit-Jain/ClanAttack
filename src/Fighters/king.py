@@ -24,9 +24,8 @@ class King(Fighter):
                 buildings.add(obj)
 
     def attack(self):
-        if time.monotonic() - self._last_attacked < 1 / self._attack_speed:
+        if not super().attack():
             return
-        self._last_attacked = time.monotonic()
         buildings = set()
         self.attack_loop(self.game.huts, buildings)
         self.attack_loop(self.game.walls, buildings)

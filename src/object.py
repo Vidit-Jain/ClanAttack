@@ -14,9 +14,6 @@ class Object:
             obj.get_y()[1], self.get_y()[1]
         ) > max(obj.get_y()[0], self.get_y()[0])
 
-    def attack(self, obj):
-        pass
-
     def damaged(self, damage: int):
         self._health -= damage
         if self._health <= 0:

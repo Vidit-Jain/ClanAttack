@@ -1,5 +1,6 @@
 from src.Fighters.fighter import Fighter
 from src.config import BARBARIAN
+from src.audio import *
 import random
 
 
@@ -89,3 +90,9 @@ class Barbarian(Fighter):
     def damaged(self, damage: int):
         self.__update_color()
         super().damaged(damage)
+
+    def attack(self, obj):
+        if not super().attack():
+            return
+        play("src/AudioFiles/barbarian_attack.mp3")
+        obj.damaged(self._damage * (self.game.rage.get_active() + 1))
