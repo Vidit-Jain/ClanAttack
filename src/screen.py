@@ -36,7 +36,7 @@ class Screen:
         return time.monotonic() - self._last_render > 1 / GAME["fps"]
 
     def add_health_bar(self, game):
-        health = "King health: "
+        health = game.player.name + " health: "
         for i in range(0, len(health)):
             self._screen[MESSAGES["stats"][0]][MESSAGES["stats"][1] + i] = health[i]
 
