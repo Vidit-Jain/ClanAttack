@@ -66,6 +66,13 @@ class Screen:
                 i
             ]
 
+    def add_player_choice(self, game):
+        players = ["King", "Queen"]
+        self._screen[MESSAGES["game_end"][1] + game.player_choice][MESSAGES["game_end"][0] - 1] = ">"
+        for player in range(0, len(players)):
+            for i in range(0, len(players[player])):
+                self._screen[MESSAGES["game_end"][1] + player][MESSAGES["game_end"][0] + i] = players[player][i]
+
     def render(self, game):
         if not self.should_render():
             return
