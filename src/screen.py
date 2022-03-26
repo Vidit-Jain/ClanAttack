@@ -40,7 +40,7 @@ class Screen:
         for i in range(0, len(health)):
             self._screen[MESSAGES["stats"][0]][MESSAGES["stats"][1] + i] = health[i]
 
-        if game.player is None:
+        if game.player.is_destroyed():
             return
 
         bar = "+" * int(game.player.get_health() * 10 / game.player.get_max_health())
@@ -117,5 +117,5 @@ class Screen:
         self.add_health_bar(game)
         self.add_spells_bar(game)
 
-        if game.player is not None:
+        if not game.player.is_destroyed():
             self.add(game.player)

@@ -60,7 +60,7 @@ class Game:
         # Don't process input if game over
         if self.game_end == 1:
             return 0
-        if self.player is not None and ch in self.player.control_keys:
+        if (not self.player.is_destroyed()) and (ch in self.player.control_keys):
             self.player.move(ch)
         elif ch in SPAWNPOINT["control_keys"]:
             spawn(self, ch)

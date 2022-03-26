@@ -41,7 +41,7 @@ class Wizard(Building):
             for troop in troop_arr:
                 if self.__dist(troop) < self.__dist(best):
                     best = troop
-        if self.game.player is not None and self.__dist(self.game.player) < self.__dist(
+        if (not self.game.player.is_destroyed()) and self.__dist(self.game.player) < self.__dist(
             best
         ):
             best = self.game.player
