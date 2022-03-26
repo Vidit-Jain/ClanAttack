@@ -4,33 +4,22 @@ from src.config import *
 
 
 def remove_destroyed(game):
-    for barbarian in game.barbarians:
-        if barbarian.is_destroyed():
-            game.barbarians.remove(barbarian)
-
-    for wall in game.walls:
-        if wall.is_destroyed():
-            game.walls.remove(wall)
-
-    for hut in game.huts:
-        if hut.is_destroyed():
-            game.huts.remove(hut)
-
-    for cannon in game.cannons:
-        if cannon.is_destroyed():
-            game.cannons.remove(cannon)
-
+    for building_arr in game.buildings:
+        for building in building_arr:
+            if building.is_destroyed():
+                building_arr.remove(building)
+    for troop_arr in game.troops:
+        for troop in troop_arr:
+            if troop.is_destroyed():
+                troop_arr.remove(troop)
     if game.king is not None and game.king.is_destroyed():
         game.king = None
 
-    for townhall in game.townhall:
-        if townhall.is_destroyed():
-            game.townhall.remove(townhall)
 
-
-def move_barbarians(game):
-    for barbarian in game.barbarians:
-        barbarian.move()
+def move_troops(game):
+    for troop_arr in game.troops:
+        for troop in troop_arr:
+            troop.move()
 
 
 def shoot_cannons(game):

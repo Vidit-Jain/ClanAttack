@@ -12,8 +12,12 @@ from src.spell import *
 
 class Game:
     def __init__(self):
+        self.spawnpoints = []
+        self.townhall = []
+        self.huts = []
+        self.cannons = []
+        self.townhall = []
         self.king = None
-        self.townhall = None
         self.input = Get()
         self.screen = Screen()
         self.rage = Rage(self)
@@ -32,13 +36,13 @@ class Game:
         self.barbarians = []
         self.enemy_buildings = [self.huts, self.walls, self.cannons, self.townhall]
         self.imp_buildings = [self.huts, self.cannons, self.townhall]
-        self.x = 1
+        self.buildings = [self.huts, self.walls, self.cannons, self.townhall, self.spawnpoints]
+        self.troops = [self.barbarians]
 
     def handle_input(self):
         ch = input_to(self.input)
         if ch == "c":
             file = store_replay(self)
-            print(self.x)
             print("Replay stored in replays/" + file)
             return 1
         # Don't process input if game over

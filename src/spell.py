@@ -49,8 +49,9 @@ class Heal(Spell):
         if self._uses > 0:
             super().use()
             play("src/AudioFiles/heal.mp3")
-            for barbarian in self._game.barbarians:
-                barbarian.heal()
+            for troop_arr in self._game.troops:
+                for troop in troop_arr:
+                    troop.heal()
             self._game.king.heal()
 
 

@@ -71,7 +71,6 @@ class Fighter(Object):
 
         # Return object you collide with and reverts the movement, else None
         obj = None
-        self.game.x = self._collision_buildings[3]
         for obj_list in self._collision_buildings:
             obj = self.loop_collide(obj_list)
             if obj is not None:

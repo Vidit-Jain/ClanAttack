@@ -108,12 +108,12 @@ class Screen:
                 self.add(obj[i])
 
     def add_to_screen(self, game):
-        self.loop_add(game.spawnpoints)
-        self.loop_add(game.huts)
-        self.loop_add(game.cannons)
-        self.loop_add(game.walls)
-        self.loop_add(game.barbarians)
-        self.loop_add(game.townhall)
+        for building in game.buildings:
+            self.loop_add(building)
+
+        for troop in game.troops:
+            self.loop_add(troop)
+
         self.add_health_bar(game)
         self.add_spells_bar(game)
 
