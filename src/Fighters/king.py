@@ -14,6 +14,7 @@ class King(Fighter):
             KING["health"],
             KING["move_speed"],
             KING["attack_speed"],
+            KING["sound_file"]
         )
         self._range = KING["range"]
 
@@ -29,7 +30,6 @@ class King(Fighter):
         buildings = set()
         for building_type in self._collision_buildings:
             self.attack_loop(building_type, buildings)
-        play("src/AudioFiles/king_attack.mp3")
         for obj in buildings:
             obj.damaged(self._damage * (self.game.rage.get_active() + 1))
 

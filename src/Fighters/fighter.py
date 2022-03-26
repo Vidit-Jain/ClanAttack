@@ -16,6 +16,7 @@ class Fighter(Object):
         health: int,
         move_speed: int,
         attack_speed: int,
+        sound_file: str,
         collision_buildings: list = None
     ):
         super().__init__(
@@ -36,6 +37,7 @@ class Fighter(Object):
         self._last_attacked = 0
         self._attack_speed = attack_speed
         self._collision_buildings = collision_buildings
+        self._sound_file = sound_file
 
     def loop_collide(self, obj_list: list[Object]):
         if obj_list is not None:
@@ -88,6 +90,7 @@ class Fighter(Object):
         if time.monotonic() - self._last_attacked < 1 / self._attack_speed:
             return False
         self._last_attacked = time.monotonic()
+        play(self._sound_file)
         return True
 
     def closest_point(self, obj):

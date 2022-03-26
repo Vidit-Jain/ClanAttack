@@ -35,6 +35,7 @@ BARBARIAN = {
     "move_speed": 7,
     "attack_speed": 1,
     "symbol": "!",
+    "sound_file": "src/AudioFiles/barbarian_attack.mp3",
 }
 ARCHER = {
     "damage": BARBARIAN["damage"] / 2,
@@ -52,6 +53,7 @@ BALLOON = {
     "move_speed": BARBARIAN["move_speed"] * 2,
     "attack_speed": 1,
     "symbol": "B",
+    "sound_file": "src/AudioFiles/barbarian_attack.mp3",
 }
 KING = {
     "damage": 50,
@@ -63,6 +65,7 @@ KING = {
     "symbol": "K",
     "starting_coords": [0, 0],
     "control_keys": ["w", "a", "s", "d", " "],
+    "sound_file": "src/AudioFiles/king_attack.mp3",
 }
 
 QUEEN = {
@@ -123,8 +126,8 @@ CANNON = {
 }
 
 SPELL = {
-    "RAGE": {"duration": 5, "uses": 2},
-    "HEAL": {"uses": 2},
+    "RAGE": {"duration": 5, "uses": 2, "sound_file": "src/AudioFiles/rage.mp3"},
+    "HEAL": {"uses": 2, "sound_file": "src/AudioFiles/heal.mp3"},
     "control_keys": ["h", "r"],
 }
 

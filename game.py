@@ -63,7 +63,7 @@ class Game:
             if self.game_end == 0:
                 self.rage.check_expired()
                 shoot_cannons(game)
-                move_barbarians(game)
+                move_troops(game)
                 remove_destroyed(game)
                 game_ended(game)
             else:
