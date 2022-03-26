@@ -15,7 +15,7 @@ GAME = {
     "symbol": " ",
     "color": Fore.WHITE,
     "fps": 20,
-    "barbarian_count": 5,
+    "troop_count": [6, 6, 3]
 }
 INITPOS = {
     "spawnpoints": [[37, 15], [90, 42], [125, 25]],
@@ -45,6 +45,7 @@ ARCHER = {
     "attack_speed": 1,
     "range": 8,
     "symbol": ">",
+    "sound_file": "src/AudioFiles/archer_attack.mp3",
 }
 BALLOON = {
     "damage": BARBARIAN["damage"] * 2,

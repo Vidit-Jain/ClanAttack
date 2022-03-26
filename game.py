@@ -12,32 +12,42 @@ from src.spell import *
 
 class Game:
     def __init__(self):
+        self.input = Get()
+        self.screen = Screen()
+        self.game_end = 0
+        self.game_result = 0
+        self.frames = []
+
+        # Buildings
         self.spawnpoints = []
         self.townhall = []
         self.huts = []
         self.cannons = []
         self.townhall = []
-        self.king = None
-        self.input = Get()
-        self.screen = Screen()
-        self.rage = Rage(self)
-        self.healSpell = Heal(self)
-        self.barbarian_count = GAME["barbarian_count"]
-        self.game_end = 0
-        self.game_result = 0
-        self.frames = []
-        add_townhall(self)
-
         add_spawnpoints(self)
+        add_townhall(self)
         add_huts(self)
-        add_walls(self)
         add_cannons(self)
-        add_king(self)
-        self.barbarians = []
+        add_walls(self)
+
         self.enemy_buildings = [self.huts, self.walls, self.cannons, self.townhall]
         self.imp_buildings = [self.huts, self.cannons, self.townhall]
         self.buildings = [self.huts, self.walls, self.cannons, self.townhall, self.spawnpoints]
-        self.troops = [self.barbarians]
+
+        # Spells
+        self.rage = Rage(self)
+        self.healSpell = Heal(self)
+
+        # Player
+        self.king = None
+        add_king(self)
+
+        # Troops
+        self.troop_count = GAME["troop_count"]
+        self.barbarians = []
+        self.archers = []
+        self.balloons = []
+        self.troops = [self.barbarians, self.archers, self.balloons]
 
     def handle_input(self):
         ch = input_to(self.input)
