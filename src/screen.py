@@ -62,16 +62,20 @@ class Screen:
     def add_game_end(self, win):
         message = "Victory!" if win == 1 else "Game Over!"
         for i in range(0, len(message)):
-            self._screen[MESSAGES["game_end"][1]][MESSAGES["game_end"][0] + i] = message[
-                i
-            ]
+            self._screen[MESSAGES["game_end"][1]][
+                MESSAGES["game_end"][0] + i
+            ] = message[i]
 
     def add_player_choice(self, game):
         players = ["King", "Queen"]
-        self._screen[MESSAGES["game_end"][1] + game.player_choice][MESSAGES["game_end"][0] - 1] = ">"
+        self._screen[MESSAGES["game_end"][1] + game.player_choice][
+            MESSAGES["game_end"][0] - 1
+        ] = ">"
         for player in range(0, len(players)):
             for i in range(0, len(players[player])):
-                self._screen[MESSAGES["game_end"][1] + player][MESSAGES["game_end"][0] + i] = players[player][i]
+                self._screen[MESSAGES["game_end"][1] + player][
+                    MESSAGES["game_end"][0] + i
+                ] = players[player][i]
 
     def render(self, game):
         if not self.should_render():

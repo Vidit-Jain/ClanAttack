@@ -19,11 +19,20 @@ class Queen(Player):
         elif self._last_direction == "s":
             starting = [0, self._range]
 
-        starting = [starting[0] + self._x[0] - self._tile_dimension // 2,
-                    starting[1] + self._y[0] - self._tile_dimension // 2,
-                    ]
-        dummy = Object(self.game, " ", COLORS["RED"], starting[0], starting[1], self._tile_dimension,
-                       self._tile_dimension, 1)
+        starting = [
+            starting[0] + self._x[0] - self._tile_dimension // 2,
+            starting[1] + self._y[0] - self._tile_dimension // 2,
+        ]
+        dummy = Object(
+            self.game,
+            " ",
+            COLORS["RED"],
+            starting[0],
+            starting[1],
+            self._tile_dimension,
+            self._tile_dimension,
+            1,
+        )
         for building_type in self.game.enemy_buildings:
             for building in building_type:
                 if dummy.collide(building):

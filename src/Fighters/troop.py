@@ -1,22 +1,23 @@
 from src.Fighters.fighter import *
 import random
 
+
 class Troop(Fighter):
     def __init__(
-            self,
-            game,
-            symbol: str,
-            color: str,
-            startx: int,
-            starty: int,
-            damage: int,
-            health: int,
-            move_speed: int,
-            attack_speed: int,
-            sound_file: str,
-            colors: list,
-            building_preferences: list,
-            collision_buildings: list = None
+        self,
+        game,
+        symbol: str,
+        color: str,
+        startx: int,
+        starty: int,
+        damage: int,
+        health: int,
+        move_speed: int,
+        attack_speed: int,
+        sound_file: str,
+        colors: list,
+        building_preferences: list,
+        collision_buildings: list = None,
     ):
         super().__init__(
             game,
@@ -29,7 +30,7 @@ class Troop(Fighter):
             move_speed,
             attack_speed,
             sound_file,
-            collision_buildings
+            collision_buildings,
         )
         self._colors = colors
         self._building_preferences = building_preferences
@@ -87,8 +88,10 @@ class Troop(Fighter):
             return
 
         if len(movement_options) == 2:
-            a = [movement_options[0][0] + movement_options[1][0],
-                 movement_options[0][1] + movement_options[1][1]]
+            a = [
+                movement_options[0][0] + movement_options[1][0],
+                movement_options[0][1] + movement_options[1][1],
+            ]
             try_diagonal = super().move(a[0], a[1])
             # If no error then you're done
             if try_diagonal is None:

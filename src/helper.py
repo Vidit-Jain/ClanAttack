@@ -47,10 +47,10 @@ def store_replay(game):
     while os.path.exists("replays/" + str(filename)):
         filename += 1
 
-    if not os.path.exists('replays'):
-        os.makedirs('replays')
+    if not os.path.exists("replays"):
+        os.makedirs("replays")
 
-    with open("replays/" + str(filename), 'ab') as file:
+    with open("replays/" + str(filename), "ab") as file:
         pickle.dump(game.frames, file)
     return str(filename)
 
@@ -66,7 +66,10 @@ def game_ended(game):
 
 def resolution_check():
     curr_height, curr_width = os.popen("stty size", "r").read().split()
-    if int(curr_width) < GAME["window"]["width"] or int(curr_height) < GAME["window"]["height"]:
+    if (
+        int(curr_width) < GAME["window"]["width"]
+        or int(curr_height) < GAME["window"]["height"]
+    ):
         print("Your terminal is too small to play this game")
         return False
     return True

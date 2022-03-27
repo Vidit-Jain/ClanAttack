@@ -41,9 +41,9 @@ class Cannon(Building):
             for troop in self.game.troops[i]:
                 if self.__dist(troop) < self.__dist(best):
                     best = troop
-        if (not self.game.player.is_destroyed()) and self.__dist(self.game.player) < self.__dist(
-            best
-        ):
+        if (not self.game.player.is_destroyed()) and self.__dist(
+            self.game.player
+        ) < self.__dist(best):
             best = self.game.player
 
         if self.__dist(best) > self._range:

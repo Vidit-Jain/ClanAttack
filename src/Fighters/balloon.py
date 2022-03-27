@@ -17,7 +17,7 @@ class Balloon(Troop):
             BALLOON["sound_file"],
             BALLOON["colors"],
             [game.wizards, game.cannons, game.townhall, game.huts],
-            []
+            [],
         )
 
     def best_building(self):

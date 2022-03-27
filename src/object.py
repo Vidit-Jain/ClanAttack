@@ -10,9 +10,11 @@ class Object:
         self._destroyed = False
 
     def collide(self, obj):
-        return min(obj.get_x()[1], self.get_x()[1]) > max(obj.get_x()[0], self.get_x()[0]) and min(
-            obj.get_y()[1], self.get_y()[1]
-        ) > max(obj.get_y()[0], self.get_y()[0])
+        return min(obj.get_x()[1], self.get_x()[1]) > max(
+            obj.get_x()[0], self.get_x()[0]
+        ) and min(obj.get_y()[1], self.get_y()[1]) > max(
+            obj.get_y()[0], self.get_y()[0]
+        )
 
     def damaged(self, damage: int):
         self._health -= damage

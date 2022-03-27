@@ -13,10 +13,10 @@ class Player(Fighter):
             config["health"],
             config["move_speed"],
             config["attack_speed"],
-            config["sound_file"]
+            config["sound_file"],
         )
         self._range = config["range"]
-        self._last_direction = 'd'
+        self._last_direction = "d"
         self.control_keys = config["control_keys"]
         self.name = name
 

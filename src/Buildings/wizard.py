@@ -30,7 +30,16 @@ class Wizard(Building):
             return
         self._last_attacked = time.monotonic()
         play("src/AudioFiles/wizard_attack.mp3")
-        dummy = Object(self.game, " ", COLORS["RED"], obj.get_x()[0] - self._tile_dimension // 2, obj.get_y()[0] - self._tile_dimension // 2, self._tile_dimension, self._tile_dimension, 999)
+        dummy = Object(
+            self.game,
+            " ",
+            COLORS["RED"],
+            obj.get_x()[0] - self._tile_dimension // 2,
+            obj.get_y()[0] - self._tile_dimension // 2,
+            self._tile_dimension,
+            self._tile_dimension,
+            999,
+        )
         obj_list = []
         for troop_type in self.game.troops:
             for troop in troop_type:
@@ -54,9 +63,9 @@ class Wizard(Building):
             for troop in troop_arr:
                 if self.__dist(troop) < self.__dist(best):
                     best = troop
-        if (not self.game.player.is_destroyed()) and self.__dist(self.game.player) < self.__dist(
-            best
-        ):
+        if (not self.game.player.is_destroyed()) and self.__dist(
+            self.game.player
+        ) < self.__dist(best):
             best = self.game.player
 
         if self.__dist(best) > self._range:

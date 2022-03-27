@@ -15,7 +15,7 @@ GAME = {
     "symbol": " ",
     "color": Fore.WHITE,
     "fps": 20,
-    "troop_count": [6, 6, 3]
+    "troop_count": [6, 6, 3],
 }
 INITPOS = {
     "spawnpoints": [[37, 15], [90, 42], [125, 25]],

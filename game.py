@@ -37,7 +37,13 @@ class Game:
 
         self.enemy_buildings = [self.huts, self.walls, self.cannons, self.townhall]
         self.imp_buildings = [self.huts, self.cannons, self.townhall]
-        self.buildings = [self.huts, self.walls, self.cannons, self.townhall, self.spawnpoints]
+        self.buildings = [
+            self.huts,
+            self.walls,
+            self.cannons,
+            self.townhall,
+            self.spawnpoints,
+        ]
 
         # Spells
         self.rage = Rage(self)

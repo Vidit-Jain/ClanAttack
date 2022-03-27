@@ -17,7 +17,7 @@ class Fighter(Object):
         move_speed: int,
         attack_speed: int,
         sound_file: str,
-        collision_buildings: list = None
+        collision_buildings: list = None,
     ):
         super().__init__(
             game,
@@ -63,7 +63,7 @@ class Fighter(Object):
 
     def move(self, x: int, y: int):
         if time.monotonic() - self._last_moved < 1 / (
-                self._move_speed * (self.game.rage.get_active() + 1)
+            self._move_speed * (self.game.rage.get_active() + 1)
         ):
             return
 
@@ -104,10 +104,7 @@ class Fighter(Object):
         return x, y
 
     def heal(self):
-        self._health = min(
-            int(self._health * 1.5), self._max_health
-        )
+        self._health = min(int(self._health * 1.5), self._max_health)
 
     def action(self):
         pass
-    

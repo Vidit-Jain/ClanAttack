@@ -16,7 +16,7 @@ class Barbarian(Troop):
             BARBARIAN["attack_speed"],
             BARBARIAN["sound_file"],
             BARBARIAN["colors"],
-            [game.huts, game.cannons, game.townhall]
+            [game.huts, game.cannons, game.townhall],
         )
 
     def action(self):

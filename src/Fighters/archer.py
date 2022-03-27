@@ -16,7 +16,7 @@ class Archer(Troop):
             ARCHER["attack_speed"],
             ARCHER["sound_file"],
             ARCHER["colors"],
-            [game.huts, game.cannons, game.townhall]
+            [game.huts, game.cannons, game.townhall],
         )
         self._range = ARCHER["range"]
 

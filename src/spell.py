@@ -35,10 +35,7 @@ class Rage(Spell):
             self._active = 1
 
     def check_expired(self):
-        if (
-            self._active == 1
-            and time.monotonic() >= self._last_used + self._duration
-        ):
+        if self._active == 1 and time.monotonic() >= self._last_used + self._duration:
             self._active = 0
 
 
