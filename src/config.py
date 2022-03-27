@@ -21,6 +21,7 @@ INITPOS = {
     "spawnpoints": [[37, 15], [90, 42], [125, 25]],
     "huts": [[60, 13], [70, 15], [80, 28], [90, 22], [80, 14]],
     "cannons": [[60, 20], [90, 30], [80, 17], [60, 25]],
+    "wizards": [[20, 20]],
 }
 
 FIGHTER = {
@@ -126,6 +127,17 @@ CANNON = {
     "range": 7,
     "damage": 15,
     "symbol": "Y",
+}
+
+WIZARD = {
+    "health": 125,
+    "width": 1,
+    "height": 1,
+    "attack_speed": 2,
+    "range": 7,
+    "damage": 15,
+    "symbol": "W",
+    "tile_dimension": 3,
 }
 
 SPELL = {

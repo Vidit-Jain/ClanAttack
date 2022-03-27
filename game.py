@@ -6,6 +6,7 @@ from src.Buildings.townhall import *
 from src.Buildings.spawnpoint import *
 from src.Buildings.hut import *
 from src.Buildings.cannon import *
+from src.Buildings.wizard import *
 from src.Buildings.wall import *
 from src.helper import *
 from src.spell import *
@@ -31,6 +32,7 @@ class Game:
         add_townhall(self)
         add_huts(self)
         add_cannons(self)
+        add_wizards(self)
         add_walls(self)
 
         self.enemy_buildings = [self.huts, self.walls, self.cannons, self.townhall]
@@ -75,6 +77,7 @@ class Game:
             elif ch == "k":
                 self.player_choice = max(0, self.player_choice - 1)
             return 0
+
         if self.game_end == 1:
             return 0
         if (not self.player.is_destroyed()) and (ch in self.player.control_keys):
