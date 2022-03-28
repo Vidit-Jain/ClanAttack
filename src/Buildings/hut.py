@@ -15,7 +15,7 @@ class Hut(Building):
         )
 
 
-def add_huts(game):
+def add_huts(game, level):
     game.huts = []
-    for i in range(0, len(INITPOS["huts"])):
-        game.huts.append(Hut(game, INITPOS["huts"][i][0], INITPOS["huts"][i][1]))
+    for i in range(0, len(INITPOS["huts"][level])):
+        game.huts.append(Hut(game, INITPOS["huts"][level][i][0], INITPOS["huts"][level][i][1]))

@@ -1,5 +1,4 @@
 import time
-from subprocess import DEVNULL, STDOUT, check_call, Popen
 from src.Buildings.building import Building
 from src.object import Object
 from src.config import WIZARD, INITPOS, COLORS
@@ -73,9 +72,9 @@ class Wizard(Building):
         self.attack(best)
 
 
-def add_wizards(game):
+def add_wizards(game, level):
     game.wizards = []
-    for i in range(0, len(INITPOS["wizards"])):
+    for i in range(0, len(INITPOS["wizards"][level])):
         game.cannons.append(
-            Wizard(game, INITPOS["wizards"][i][0], INITPOS["wizards"][i][1])
+            Wizard(game, INITPOS["wizards"][level][i][0], INITPOS["wizards"][level][i][1])
         )

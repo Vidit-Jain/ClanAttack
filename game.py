@@ -2,12 +2,7 @@ from src.game_input import *
 from src.screen import *
 from src.Fighters.king import *
 from src.Fighters.queen import *
-from src.Buildings.townhall import *
-from src.Buildings.spawnpoint import *
-from src.Buildings.hut import *
-from src.Buildings.cannon import *
-from src.Buildings.wizard import *
-from src.Buildings.wall import *
+from src.level import *
 from src.helper import *
 from src.spell import *
 
@@ -20,44 +15,16 @@ class Game:
         self.game_result = 0
         self.frames = []
         self.player_choice = 0
+        self.curr_level = 0
 
-        # Buildings
-        self.spawnpoints = []
-        self.townhall = []
-        self.huts = []
-        self.cannons = []
-        self.townhall = []
-        self.wizards = []
-        add_spawnpoints(self)
-        add_townhall(self)
-        add_huts(self)
-        add_cannons(self)
-        add_wizards(self)
-        add_walls(self)
-
-        self.enemy_buildings = [self.huts, self.walls, self.cannons, self.townhall]
-        self.imp_buildings = [self.huts, self.cannons, self.townhall]
-        self.buildings = [
-            self.huts,
-            self.walls,
-            self.cannons,
-            self.townhall,
-            self.spawnpoints,
-        ]
-
-        # Spells
-        self.rage = Rage(self)
-        self.healSpell = Heal(self)
+        self.rage = None
+        self.healSpell = None
 
         # Player
         self.player = None
 
-        # Troops
-        self.troop_count = GAME["troop_count"]
-        self.barbarians = []
-        self.archers = []
-        self.balloons = []
-        self.troops = [self.barbarians, self.archers, self.balloons]
+        self.level_object = Levels(self)
+        self.level_object.generate_level(self.curr_level)
 
     def handle_input(self):
         ch = input_to(self.input)
@@ -92,6 +59,11 @@ class Game:
             spawn(self, ch)
         elif ch in SPELL["control_keys"]:
             use_spell(self, ch)
+        # Cheatcode
+        elif ch == 'p':
+            if self.curr_level != 2:
+                self.curr_level += 1
+                self.level_object.generate_level(self.curr_level)
         return 0
 
     def loop(self):
@@ -105,7 +77,8 @@ class Game:
                 shoot_cannons(game)
                 move_troops(game)
                 remove_destroyed(game)
-                game_ended(game)
+                if game_ended(game):
+                    self.level_object.generate_level(self.curr_level)
             else:
                 self.screen.add_to_screen(self)
                 self.screen.add_game_end(self.game_result)

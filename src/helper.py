@@ -57,11 +57,16 @@ def store_replay(game):
 
 def game_ended(game):
     if game_win(game):
-        game.game_end = 1
-        game.game_result = 1
+        game.curr_level += 1
+        if game.curr_level == 3:
+            game.game_result = 1
+            return False
+        else:
+            return True
     elif game_over(game):
         game.game_end = 1
         game.game_result = -1
+    return False
 
 
 def resolution_check():

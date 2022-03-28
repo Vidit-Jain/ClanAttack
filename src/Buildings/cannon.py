@@ -51,9 +51,9 @@ class Cannon(Building):
         self.attack(best)
 
 
-def add_cannons(game):
+def add_cannons(game, level):
     game.cannons = []
-    for i in range(0, len(INITPOS["cannons"])):
+    for i in range(0, len(INITPOS["cannons"][level])):
         game.cannons.append(
-            Cannon(game, INITPOS["cannons"][i][0], INITPOS["cannons"][i][1])
+            Cannon(game, INITPOS["cannons"][level][i][0], INITPOS["cannons"][level][i][1])
         )

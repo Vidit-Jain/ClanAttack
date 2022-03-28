@@ -3,17 +3,17 @@ from src.config import TOWNHALL
 
 
 class Townhall(Building):
-    def __init__(self, game):
+    def __init__(self, game, startx, starty):
         super().__init__(
             game,
             TOWNHALL["symbol"],
-            TOWNHALL["starting_coords"][0],
-            TOWNHALL["starting_coords"][1],
+            startx,
+            starty,
             TOWNHALL["height"],
             TOWNHALL["width"],
             TOWNHALL["health"],
         )
 
 
-def add_townhall(game):
-    game.townhall = [Townhall(game)]
+def add_townhall(game, level):
+    game.townhall = [Townhall(game, TOWNHALL["starting_coords"][level][0], TOWNHALL["starting_coords"][level][1])]
