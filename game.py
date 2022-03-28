@@ -60,7 +60,7 @@ class Game:
         elif ch in SPELL["control_keys"]:
             use_spell(self, ch)
         # Cheatcode
-        elif ch == 'p':
+        elif ch == "p":
             if self.curr_level != 2:
                 self.curr_level += 1
                 self.level_object.generate_level(self.curr_level)

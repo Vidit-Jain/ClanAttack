@@ -18,10 +18,10 @@ class Wall(Building):
 def generate_wall(game, start_wall: list[int], end_wall: list[int]):
     walls = []
     for i in range(
-            min(start_wall[0], end_wall[0]), max(start_wall[0], end_wall[0]) + 1
+        min(start_wall[0], end_wall[0]), max(start_wall[0], end_wall[0]) + 1
     ):
         for j in range(
-                min(start_wall[1], end_wall[1]), max(start_wall[1], end_wall[1]) + 1
+            min(start_wall[1], end_wall[1]), max(start_wall[1], end_wall[1]) + 1
         ):
             walls.append(Wall(game, i, j))
 

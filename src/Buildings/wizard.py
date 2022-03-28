@@ -76,5 +76,7 @@ def add_wizards(game, level):
     game.wizards = []
     for i in range(0, len(INITPOS["wizards"][level])):
         game.cannons.append(
-            Wizard(game, INITPOS["wizards"][level][i][0], INITPOS["wizards"][level][i][1])
+            Wizard(
+                game, INITPOS["wizards"][level][i][0], INITPOS["wizards"][level][i][1]
+            )
         )

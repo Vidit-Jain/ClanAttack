@@ -10,7 +10,6 @@ from src.spell import *
 
 
 class Levels:
-
     def __init__(self, game):
         self.game = game
         self.level_count = LEVELS["level_count"]
@@ -44,8 +43,17 @@ class Levels:
         add_wizards(self.game, level)
         add_walls(self.game, level)
 
-        self.game.enemy_buildings = [self.game.huts, self.game.walls, self.game.cannons, self.game.townhall]
-        self.game.imp_buildings = [self.game.huts, self.game.cannons, self.game.townhall]
+        self.game.enemy_buildings = [
+            self.game.huts,
+            self.game.walls,
+            self.game.cannons,
+            self.game.townhall,
+        ]
+        self.game.imp_buildings = [
+            self.game.huts,
+            self.game.cannons,
+            self.game.townhall,
+        ]
         self.game.buildings = [
             self.game.huts,
             self.game.walls,

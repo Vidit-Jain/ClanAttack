@@ -41,5 +41,9 @@ def add_spawnpoints(game, level):
     game.spawnpoints = []
     for i in range(0, len(INITPOS["spawnpoints"][level])):
         game.spawnpoints.append(
-            Spawnpoint(game, INITPOS["spawnpoints"][level][i][0], INITPOS["spawnpoints"][level][i][1])
+            Spawnpoint(
+                game,
+                INITPOS["spawnpoints"][level][i][0],
+                INITPOS["spawnpoints"][level][i][1],
+            )
         )
