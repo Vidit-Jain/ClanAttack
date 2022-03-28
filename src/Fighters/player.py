@@ -19,6 +19,15 @@ class Player(Fighter):
         self._last_direction = "d"
         self.control_keys = config["control_keys"]
         self.name = name
+        self.ultimate_location = None
+        self.last_ult = -1
+        self.ult_attack = False
+
+    def ultimate_attack(self):
+        pass
+
+    def ult_damage(self):
+        pass
 
     def attacked_buildings(self):
         return set()
@@ -44,4 +53,7 @@ class Player(Fighter):
             super().move(1, 0)
         else:
             self._last_direction = prev_char
-            self.attack()
+            if ch == "x":
+                self.ultimate_attack()
+            else:
+                self.attack()

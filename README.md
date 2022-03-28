@@ -30,6 +30,7 @@ Where id is a number (0, 1, 2, ...)
 <kbd>w</kbd><kbd>a</kbd><kbd>s</kbd><kbd>d</kbd> - Controls the player 
 
 <kbd>Space</kbd> - Player attack
+<kbd>x</kbd> - Ultimate attack (Queen only)
 
 <kbd>r</kbd> - Use rage spell
 <kbd>h</kbd> - Use heal spell
@@ -63,10 +64,13 @@ Where id is a number (0, 1, 2, ...)
 
 
 ## Bonus
+### Assignment 1
 - King's Leviathan Axe - Implemented
 - Creative feature - Implemented audio for multiple actions, such as
-    - King attack
-    - Barbarian attack
-    - Cannon attack
-    - Rage spell
-    - Heal spell
+    - King, Queen attack
+    - Barbarian, Archer, Balloon attack
+    - Cannon, Wizard tower attack
+    - Rage, Heal spell
+
+### Assignment 2
+- Archer Queen's Eagle Arrow - Implemented

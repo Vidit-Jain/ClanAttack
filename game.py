@@ -77,6 +77,14 @@ class Game:
                 shoot_cannons(game)
                 move_troops(game)
                 remove_destroyed(game)
+                if (
+                    self.player is not None
+                    and self.player.last_ult + 1 <= time.monotonic()
+                    and self.player.ult_attack
+                ):
+                    self.player.ult_attack = False
+                    self.player.ult_damage()
+
                 if game_ended(game):
                     self.level_object.generate_level(self.curr_level)
             else:

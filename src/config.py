@@ -148,11 +148,15 @@ QUEEN = {
     "color": Fore.BLUE,
     "move_speed": KING["move_speed"],
     "attack_speed": 0.5,
+    "ultimate_attack_speed": 0.2,
     "range": 8,
+    "ultimate_range": 16,
     "symbol": "Q",
     "starting_coords": [0, 0],
     "tile_dimension": 5,
+    "ultimate_tile_dimension": 9,
     "sound_file": "src/AudioFiles/queen_attack.mp3",
+    "ultimate_sound_file": "src/AudioFiles/ultimate.mp3",
     "control_keys": ["w", "a", "s", "d", " ", "x"],
 }
 
@@ -179,7 +183,6 @@ TOWNHALL = {
     "width": 3,
     "height": 4,
     "symbol": "$",
-    # "starting_coords": [GAME["window"]["width"] / 2, GAME["window"]["height"] / 2],
     "starting_coords": [
         [70, 22],
         [70, 22],
