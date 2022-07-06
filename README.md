@@ -63,14 +63,8 @@ Where id is a number (0, 1, 2, ...)
 `W` - Wizard (1 x 1) (Range = 7)
 
 
-## Bonus
-### Assignment 1
-- King's Leviathan Axe - Implemented
-- Creative feature - Implemented audio for multiple actions, such as
-    - King, Queen attack
-    - Barbarian, Archer, Balloon attack
-    - Cannon, Wizard tower attack
-    - Rage, Heal spell
-
-### Assignment 2
-- Archer Queen's Eagle Arrow - Implemented
+Audio effects has also been implemented for multiple actions, such as
+- King, Queen attack
+- Barbarian, Archer, Balloon attack
+- Cannon, Wizard tower attack
+- Rage, Heal spell
